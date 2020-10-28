@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  26 OCT 2020 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  28 OCT 2020 22:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -157,6 +157,14 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 \Gin@req@height=\dimen115
 \Gin@req@width=\dimen116
 )
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks28
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2018/03/22 version 4.13 text color boxes
 
@@ -164,7 +172,7 @@ Package: tcolorbox 2018/03/22 version 4.13 text color boxes
 (/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks28
+\pgfutil@everybye=\toks29
 \pgfutil@tempdima=\dimen117
 \pgfutil@tempdimb=\dimen118
 
@@ -184,12 +192,12 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks31
+\pgfkeys@tmptoks=\toks32
 ))
 \pgf@x=\dimen119
 \pgf@y=\dimen120
@@ -205,9 +213,9 @@ ode.tex
 \c@pgf@countb=\count101
 \c@pgf@countc=\count102
 \c@pgf@countd=\count103
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -241,9 +249,9 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 \pgfmath@dimen=\dimen127
 \pgfmath@count=\count106
 \pgfmath@box=\box29
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -380,8 +388,8 @@ Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
 Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 )) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks38
-\verbatim@line=\toks39
+\every@verbatim=\toks39
+\verbatim@line=\toks40
 \verbatim@in@stream=\read2
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
@@ -390,7 +398,7 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/usr/local/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
-\@envbody=\toks40
+\@envbody=\toks41
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
@@ -429,8 +437,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen154
 \pgffor@skip=\dimen155
-\pgffor@stack=\toks41
-\pgffor@toks=\toks42
+\pgffor@stack=\toks42
+\pgffor@toks=\toks43
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -494,7 +502,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks43
+\@emptytoks=\toks44
 \ex@=\dimen163
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -524,21 +532,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \dotsspace@=\muskip10
 \c@parentequation=\count133
 \dspbrk@lvl=\count134
-\tag@help=\toks44
+\tag@help=\toks45
 \row@=\count135
 \column@=\count136
 \maxfields@=\count137
-\andhelp@=\toks45
+\andhelp@=\toks46
 \eqnshift@=\dimen166
 \alignsep@=\dimen167
 \tagshift@=\dimen168
 \tagwidth@=\dimen169
 \totwidth@=\dimen170
 \lineht@=\dimen171
-\@envbody=\toks46
+\@envbody=\toks47
 \multlinegap=\skip47
 \multlinetaggap=\skip48
-\mathdisplay@stack=\toks47
+\mathdisplay@stack=\toks48
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 ))
@@ -885,18 +893,18 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 )
 \openout1 = `hw6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -944,12 +952,12 @@ File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 \scratchbox=\box76
 \nofMPsegments=\count302
 \nofMParguments=\count303
-\everyMPshowfont=\toks48
+\everyMPshowfont=\toks49
 \MPscratchCnt=\count304
 \MPscratchDim=\dimen269
 \MPnumerator=\count305
 \makeMPintoPDFobject=\count306
-\everyMPtoPDFconversion=\toks49
+\everyMPtoPDFconversion=\toks50
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -984,13 +992,23 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 <imgs/def2_4.png, id=41, 508.90125pt x 100.375pt>
 File: imgs/def2_4.png Graphic file (type png)
 <use imgs/def2_4.png>
-Package pdftex.def Info: imgs/def2_4.png  used on input line 26.
+Package pdftex.def Info: imgs/def2_4.png  used on input line 27.
 (pdftex.def)             Requested size: 249.33128pt x 49.17804pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
@@ -998,49 +1016,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./imgs/
 def2_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--105
+Underfull \hbox (badness 10000) in paragraph at lines 103--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--116
+Underfull \hbox (badness 10000) in paragraph at lines 114--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--122
+Underfull \hbox (badness 10000) in paragraph at lines 120--123
 
  []
 
 <imgs/def2_10.png, id=58, 392.46625pt x 78.2925pt>
 File: imgs/def2_10.png Graphic file (type png)
 <use imgs/def2_10.png>
-Package pdftex.def Info: imgs/def2_10.png  used on input line 134.
+Package pdftex.def Info: imgs/def2_10.png  used on input line 135.
 (pdftex.def)             Requested size: 199.46198pt x 39.79124pt.
 [2 <./imgs/def2_10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 142--146
+Underfull \hbox (badness 10000) in paragraph at lines 143--147
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 153.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 154.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 153.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
 <imgs/exp2_13.png, id=66, 753.81625pt x 635.37375pt>
 File: imgs/exp2_13.png Graphic file (type png)
 <use imgs/exp2_13.png>
-Package pdftex.def Info: imgs/exp2_13.png  used on input line 177.
+Package pdftex.def Info: imgs/exp2_13.png  used on input line 178.
 (pdftex.def)             Requested size: 149.6003pt x 126.09329pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 212--214
 
  []
 
@@ -1048,60 +1066,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--213
 <imgs/def2_14.png, id=71, 873.2625pt x 540.0175pt>
 File: imgs/def2_14.png Graphic file (type png)
 <use imgs/def2_14.png>
-Package pdftex.def Info: imgs/def2_14.png  used on input line 228.
+Package pdftex.def Info: imgs/def2_14.png  used on input line 229.
 (pdftex.def)             Requested size: 249.33128pt x 154.1785pt.
  [4 <./imgs/def2_14.png>] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
 
  []
 
 <imgs/def2_29.png, id=83, 548.0475pt x 410.53375pt>
 File: imgs/def2_29.png Graphic file (type png)
 <use imgs/def2_29.png>
-Package pdftex.def Info: imgs/def2_29.png  used on input line 333.
+Package pdftex.def Info: imgs/def2_29.png  used on input line 334.
 (pdftex.def)             Requested size: 249.33128pt x 186.77435pt.
 [7 <./imgs/def2_29.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 365--368
+Underfull \hbox (badness 10000) in paragraph at lines 366--369
 
  []
 
 [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 406--409
+Underfull \hbox (badness 10000) in paragraph at lines 407--410
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 439--442
+Underfull \hbox (badness 10000) in paragraph at lines 440--443
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--448
+Underfull \hbox (badness 10000) in paragraph at lines 446--449
 
  []
 
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 602--605
+Underfull \hbox (badness 10000) in paragraph at lines 603--606
 
  []
 
 [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 672--676
+Underfull \hbox (badness 10000) in paragraph at lines 673--677
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--733
+Underfull \hbox (badness 10000) in paragraph at lines 732--734
 
  []
 
@@ -1109,104 +1127,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 731--733
 <imgs/exp3_10.png, id=119, 566.115pt x 373.395pt>
 File: imgs/exp3_10.png Graphic file (type png)
 <use imgs/exp3_10.png>
-Package pdftex.def Info: imgs/exp3_10.png  used on input line 795.
+Package pdftex.def Info: imgs/exp3_10.png  used on input line 796.
 (pdftex.def)             Requested size: 164.55956pt x 108.53816pt.
 <imgs/exp3_10_2.png, id=120, 682.55pt x 413.545pt>
 File: imgs/exp3_10_2.png Graphic file (type png)
 <use imgs/exp3_10_2.png>
-Package pdftex.def Info: imgs/exp3_10_2.png  used on input line 796.
+Package pdftex.def Info: imgs/exp3_10_2.png  used on input line 797.
 (pdftex.def)             Requested size: 149.6003pt x 90.63942pt.
  [16 <./imgs/exp3_10.png> <./imgs/exp3_10_2.png>]
 <imgs/exp3_4_1.png, id=126, 547.04375pt x 312.16624pt>
 File: imgs/exp3_4_1.png Graphic file (type png)
 <use imgs/exp3_4_1.png>
-Package pdftex.def Info: imgs/exp3_4_1.png  used on input line 816.
+Package pdftex.def Info: imgs/exp3_4_1.png  used on input line 817.
 (pdftex.def)             Requested size: 164.55956pt x 93.90305pt.
 <imgs/exp3_4_2.png, id=127, 605.26125pt x 250.9375pt>
 File: imgs/exp3_4_2.png Graphic file (type png)
 <use imgs/exp3_4_2.png>
-Package pdftex.def Info: imgs/exp3_4_2.png  used on input line 817.
+Package pdftex.def Info: imgs/exp3_4_2.png  used on input line 818.
 (pdftex.def)             Requested size: 199.46198pt x 82.69475pt.
 <imgs/exp3_4_5.png, id=128, 356.33125pt x 303.1325pt>
 File: imgs/exp3_4_5.png Graphic file (type png)
 <use imgs/exp3_4_5.png>
-Package pdftex.def Info: imgs/exp3_4_5.png  used on input line 843.
+Package pdftex.def Info: imgs/exp3_4_5.png  used on input line 844.
 (pdftex.def)             Requested size: 139.62491pt x 118.77625pt.
 <imgs/exp3_4_3.png, id=129, 465.74pt x 360.34625pt>
 File: imgs/exp3_4_3.png Graphic file (type png)
 <use imgs/exp3_4_3.png>
-Package pdftex.def Info: imgs/exp3_4_3.png  used on input line 844.
+Package pdftex.def Info: imgs/exp3_4_3.png  used on input line 845.
 (pdftex.def)             Requested size: 149.6003pt x 115.74753pt.
 <imgs/exp3_4_4.png, id=130, 528.97626pt x 204.765pt>
 File: imgs/exp3_4_4.png Graphic file (type png)
 <use imgs/exp3_4_4.png>
-Package pdftex.def Info: imgs/exp3_4_4.png  used on input line 845.
+Package pdftex.def Info: imgs/exp3_4_4.png  used on input line 846.
 (pdftex.def)             Requested size: 174.53494pt x 67.56015pt.
  [17 <./imgs/exp3_4_1.png> <./imgs/exp3_4_2.png> <./imgs/exp3_4_5.png> <./imgs/
 exp3_4_3.png> <./imgs/exp3_4_4.png>] [18]
 <imgs/exp3_12.png, id=142, 305.14pt x 226.8475pt>
 File: imgs/exp3_12.png Graphic file (type png)
 <use imgs/exp3_12.png>
-Package pdftex.def Info: imgs/exp3_12.png  used on input line 944.
+Package pdftex.def Info: imgs/exp3_12.png  used on input line 945.
 (pdftex.def)             Requested size: 109.70638pt x 81.55772pt.
 <imgs/exp3_13.png, id=143, 410.53375pt x 181.67876pt>
 File: imgs/exp3_13.png Graphic file (type png)
 <use imgs/exp3_13.png>
-Package pdftex.def Info: imgs/exp3_13.png  used on input line 945.
+Package pdftex.def Info: imgs/exp3_13.png  used on input line 946.
 (pdftex.def)             Requested size: 149.6003pt x 66.20268pt.
 <imgs/exp3_14.png, id=144, 393.47pt x 205.76875pt>
 File: imgs/exp3_14.png Graphic file (type png)
 <use imgs/exp3_14.png>
-Package pdftex.def Info: imgs/exp3_14.png  used on input line 946.
+Package pdftex.def Info: imgs/exp3_14.png  used on input line 947.
 (pdftex.def)             Requested size: 149.6003pt x 78.23375pt.
  [19 <./imgs/exp3_12.png> <./imgs/exp3_13.png> <./imgs/exp3_14.png>]
 <imgs/exp3_15.png, id=152, 797.98125pt x 127.47626pt>
 File: imgs/exp3_15.png Graphic file (type png)
 <use imgs/exp3_15.png>
-Package pdftex.def Info: imgs/exp3_15.png  used on input line 963.
+Package pdftex.def Info: imgs/exp3_15.png  used on input line 964.
 (pdftex.def)             Requested size: 249.33128pt x 39.83038pt.
 <imgs/exp3_15_2.png, id=153, 318.18875pt x 209.78375pt>
 File: imgs/exp3_15_2.png Graphic file (type png)
 <use imgs/exp3_15_2.png>
-Package pdftex.def Info: imgs/exp3_15_2.png  used on input line 964.
+Package pdftex.def Info: imgs/exp3_15_2.png  used on input line 965.
 (pdftex.def)             Requested size: 99.73099pt x 65.75252pt.
 <imgs/exp3_17.png, id=154, 812.03375pt x 289.08pt>
 File: imgs/exp3_17.png Graphic file (type png)
 <use imgs/exp3_17.png>
-Package pdftex.def Info: imgs/exp3_17.png  used on input line 992.
+Package pdftex.def Info: imgs/exp3_17.png  used on input line 993.
 (pdftex.def)             Requested size: 249.33128pt x 88.75813pt.
  [20 <./imgs/exp3_15.png> <./imgs/exp3_15_2.png> <./imgs/exp3_17.png>]
 [21] [22] [23]
 <imgs/exp4_10.png, id=170, 580.1675pt x 376.40625pt>
 File: imgs/exp4_10.png Graphic file (type png)
 <use imgs/exp4_10.png>
-Package pdftex.def Info: imgs/exp4_10.png  used on input line 1143.
+Package pdftex.def Info: imgs/exp4_10.png  used on input line 1144.
 (pdftex.def)             Requested size: 249.33128pt x 161.76537pt.
  [24 <./imgs/exp4_10.png>]
 <imgs/exp4_16.png, id=175, 821.0675pt x 393.47pt>
 File: imgs/exp4_16.png Graphic file (type png)
 <use imgs/exp4_16.png>
-Package pdftex.def Info: imgs/exp4_16.png  used on input line 1207.
+Package pdftex.def Info: imgs/exp4_16.png  used on input line 1208.
 (pdftex.def)             Requested size: 249.33128pt x 119.48283pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1221
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1222
 
  []
 
 [25 <./imgs/exp4_16.png>] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1323
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
 
  []
 
 [28] [29] [30] [31] [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1690--1692
+Underfull \hbox (badness 10000) in paragraph at lines 1691--1693
 
  []
 
 <imgs/exp6_2.png, id=208, 734.745pt x 348.30125pt>
 File: imgs/exp6_2.png Graphic file (type png)
 <use imgs/exp6_2.png>
-Package pdftex.def Info: imgs/exp6_2.png  used on input line 1718.
+Package pdftex.def Info: imgs/exp6_2.png  used on input line 1719.
 (pdftex.def)             Requested size: 349.06227pt x 165.47137pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1215,7 +1233,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ) [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1786--1787
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
 
  []
 
@@ -1223,26 +1241,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 1786--1787
 <imgs/hw6_1.png, id=227, 1191.45125pt x 792.9625pt>
 File: imgs/hw6_1.png Graphic file (type png)
 <use imgs/hw6_1.png>
-Package pdftex.def Info: imgs/hw6_1.png  used on input line 1871.
+Package pdftex.def Info: imgs/hw6_1.png  used on input line 1874.
 (pdftex.def)             Requested size: 149.6003pt x 99.55565pt.
- [39 <./imgs/hw6_1.png>] [40] [41] [42]
-<imgs/exp7_11.png, id=241, 368.37625pt x 177.66376pt>
-File: imgs/exp7_11.png Graphic file (type png)
-<use imgs/exp7_11.png>
-Package pdftex.def Info: imgs/exp7_11.png  used on input line 2090.
-(pdftex.def)             Requested size: 149.6003pt x 72.1486pt.
- [43 <./imgs/exp7_11.png>]
-(./hw6.aux)
+ [39 <./imgs/hw6_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1978--1986
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1992--1999
+
+ []
+
+[41] [42] [43] [44]
+<imgs/hw7_11.png, id=249, 565.11125pt x 312.16624pt>
+File: imgs/hw7_11.png Graphic file (type png)
+<use imgs/hw7_11.png>
+Package pdftex.def Info: imgs/hw7_11.png  used on input line 2243.
+(pdftex.def)             Requested size: 149.6003pt x 82.63791pt.
+ [45 <./imgs/hw7_11.png>]
+<imgs/hw7_13.png, id=255, 333.245pt x 230.8625pt>
+File: imgs/hw7_13.png Graphic file (type png)
+<use imgs/hw7_13.png>
+Package pdftex.def Info: imgs/hw7_13.png  used on input line 2289.
+(pdftex.def)             Requested size: 149.6003pt x 103.64056pt.
+
+Overfull \hbox (26.40388pt too wide) detected at line 2299
+[][]
+ []
+
+[46 <./imgs/hw7_13.png>]
+<imgs/hw7_12.png, id=260, 588.1975pt x 172.645pt>
+File: imgs/hw7_12.png Graphic file (type png)
+<use imgs/hw7_12.png>
+Package pdftex.def Info: imgs/hw7_12.png  used on input line 2346.
+(pdftex.def)             Requested size: 249.33128pt x 73.18214pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[47] [48 <./imgs/hw7_12.png>] (./hw6.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28948 strings out of 492649
- 600925 string characters out of 6129623
- 685318 words of memory out of 5000000
- 32398 multiletter control sequences out of 15000+600000
- 543049 words of font info for 53 fonts, out of 8000000 for 9000
+ 29053 strings out of 492649
+ 602473 string characters out of 6129623
+ 688314 words of memory out of 5000000
+ 32485 multiletter control sequences out of 15000+600000
+ 545529 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10486b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1263,15 +1311,16 @@ cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
 texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
 ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on hw6.pdf (43 pages, 915775 bytes).
+e/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on hw6.pdf (48 pages, 983138 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 343 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 272 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 282 words of extra memory for PDF output out of 10000 (max. 10000000)
 
