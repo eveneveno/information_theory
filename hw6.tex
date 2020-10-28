@@ -1863,266 +1863,231 @@ $$
 %(1-\delta) 2^{n(H(X)-\eta)} \leq\left|T_{[X] \delta}^{n}\right| \leq 2^{n(H(X)+\eta)}
 %$$
 
+\newpage
+1. Show that $(\mathbf{x}, \mathbf{y}) \in T_{[X, Y] \delta}^{n}$ and $(\mathbf{y}, \mathbf{z}) \in T_{[Y, Z] \delta}^{n}$ do not imply $(\mathbf{x}, \mathbf{z}) \in$
+$T_{[X, Z] \delta}^{n}$
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.3\linewidth]{imgs/hw6_1.png}
+	\caption{The illustrated random variables $(X, Y, Z)$ gives a counter example.}
+\end{figure}
 
+\vspace{10pt}
+2. Let $\mathbf{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right),$ where $X_{k}$ are i.i.d. with generic random variable $X .$ Prove that
+$$
+\operatorname{Pr}\left\{\mathbf{X} \in T_{[X] \delta}^{n}\right\} \geq 1-\frac{|\mathcal{X}|^{3}}{n \delta^{2}}
+$$
+for any $n$ and $\delta>0 .$ This shows that $\operatorname{Pr}\left\{\mathbf{X} \in T_{[X] \delta}^{n}\right\} \rightarrow 1$ as $\delta \rightarrow 0$ and $n \rightarrow \infty$ if $\sqrt{n} \delta \rightarrow \infty$
+\paragraph{Answer:}
+$$
+\begin{aligned}
+	\operatorname{Pr}\left\{\mathbf{X} \in T_{[X] \delta}^{n}\right\} 
+	&=\operatorname{Pr}\left\{\sum_{x}\left|\frac{1}{n} N(x ; \mathbf{X})-p(x)\right| \leq \delta\right\} \\
+	&=1-\operatorname{Pr}\left\{\sum_{x}\left|\frac{1}{n} N(x ; \mathbf{X})-p(x)\right|>\delta\right\} \\
+	&\geq 1-\operatorname{Pr}\left\{\left|\frac{1}{n} N(x ; \mathbf{X})-p(x)\right|>\frac{\delta}{|\mathcal{X}|} \text { for some } x \in \mathcal{X}\right\} \\
+	%	&>1-\delta
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+	\operatorname{Pr}\left\{\left|\frac{1}{n} N(x ; \mathbf{X})-p(x)\right|>\frac{\delta}{|\mathcal{X}|} \text { for some } x\right\} 
+	&=\operatorname{Pr}\left\{\left|\frac{1}{n} \sum_{k=1}^{n} B_{k}(x)-p(x)\right|>\frac{\delta}{|\mathcal{X}|} \text { for some } x\right\} \\
+	&=\operatorname{Pr}\left\{\bigcup_{x}\left\{\left|\frac{1}{n} \sum_{k=1}^{n} B_{k}(x)-p(x)\right|>\frac{\delta}{|\mathcal{X}|}\right\}\right\} \\
+	&\leq \sum_{x} \operatorname{Pr}\left\{\left|\frac{1}{n} \sum_{k=1}^{n} B_{k}(x)-p(x)\right|>\frac{\delta}{|\mathcal{X}|}\right\} \\
+	&\leq \sum_{x} \operatorname{Pr}\left\{\left| B_{k}(x)-p(x)\right|>\frac{\delta}{|\mathcal{X}|}\right\} \qquad \text{(Since i.i.d)}\\
+	&<\sum_{x} \frac{\sigma^{2}   |\mathcal{X}|^2 }{n \delta^{2}}  \qquad \text{(Chebyshev's inequality)}\\
+	&< \frac{|\mathcal{X}|^{3}}{n \delta^{2}}
+	%	&<\sum_{x} \frac{\delta}{|\mathcal{X}|} =\delta
+\end{aligned}
+$$
+Using Chebyshev's inequality
+$$
+\mathrm{P}\left(\left|\bar{X}_{n}-\mu\right| \geq \varepsilon\right) \leq \frac{\sigma^{2}}{n \varepsilon^{2}}
+$$
+Therefore we proved
+$$
+\operatorname{Pr}\left\{\mathbf{X} \in T_{[X] \delta}^{n}\right\} \geq 1-\frac{|\mathcal{X}|^{3}}{n \delta^{2}}
+$$
+\vspace{10pt}
+
+4. Prove Proposition $6.13 .$ Hint: Use the fact that if $(\mathbf{X}, \mathbf{Y}) \in T_{[X Y] \delta}^{n},$ then $\mathbf{X} \in S_{[X] \delta}^{n}$
+
+
+\paragraph{Proposition 6.13.} With respect to a joint distribution $p(x, y)$ on $\mathcal{X} \times \mathcal{Y},$ for any $\delta>0$
+$$
+\operatorname{Pr}\left\{\mathbf{X} \in S_{[X] \delta}^{n}\right\}>1-\delta
+$$
+for $n$ sufficiently large.
+
+By Theorem 6.7. If $(\mathbf{x}, \mathbf{y}) \in T_{[X Y] \delta}^{n},$ then $\mathbf{x} \in T_{[X] \delta}^{n}$
+
+$$
+\begin{aligned}
+\sum_{x}\left|\frac{1}{n} N(x ; \mathbf{x})-p(x)\right|
+&=\sum_{x}\left|\frac{1}{n} \sum_{y} N(x, y ; \mathbf{x}, \mathbf{y})-\sum_{y} p(x, y)\right| \\
+&\sum_{x}\left|\sum_{y}\left(\frac{1}{n} N(x, y ; \mathbf{x}, \mathbf{y})-p(x, y)\right)\right| \\
+&\leq \sum_{x} \sum_{y} \left|\frac{1}{n} N(x, y ; \mathbf{x}, \mathbf{y})-p(x, y)\right| \\
+%	&\leq \delta
+\end{aligned}
+$$
+By Weak Law of Large Number, as $n \rightarrow \infty$,
+$$
+\operatorname{Pr}\left\{  \left|\frac{1}{n} N(x, y ; \mathbf{x}, \mathbf{y})-p(x, y)\right| >\frac{\delta}{|\mathcal{X}| |\mathcal{Y}|}\right\}<\frac{\delta}{|\mathcal{X}| |\mathcal{Y}|}
+$$
+Then 
+$$
+\sum_{x}\left|\frac{1}{n} N(x ; \mathbf{x})-p(x)\right| < \delta
+$$
+$$
+\operatorname{Pr}\left\{\mathbf{X} \in S_{[X] \delta}^{n}\right\}>1-\delta
+$$
+\vspace{10pt}
+
+6. Let $p$ be any probability distribution over a finite set $\mathcal{X}$ and $\eta$ be a real number in $(0,1) .$ Prove that for any subset $A$ of $\mathcal{X}^{n}$ with $p^{n}(A) \geq \eta$,
+$$
+\left|A \cap T_{[X] \delta}^{n}\right| \geq 2^{n\left(H(p)-\delta^{\prime}\right)}
+$$
+where $\delta^{\prime} \rightarrow 0$ as $\delta \rightarrow 0$ and $n \rightarrow \infty$
+
+\paragraph{Answer:}
+Recall for $x \in T_{[X] \delta}$,
+$$
+2^{-n(H(X)+\delta)} \leq p(\mathbf{x}) \leq 2^{-n(H(X)-\delta)}
+$$
+Then for $\mathbf{y} \in A \cap T_{[X] \delta}$, we have $p(\mathbf{y}) = p(\mathbf{x})p(A) = \eta p(\mathbf{x})$ \\ (Note that given in question, $p(A) \geq \eta$, for simplicity, we fix $p(A) = \eta, \eta \in (0, 1)$)\\
+By using the upper bound inequality $p(\mathbf{x}) \leq 2^{-n(H(X)-\delta)}$
+$$
+p(\mathbf{y}) \leq \eta 2^{-n(H(X)-\delta)} = 2^{-n( \frac{\log(\eta)}{n} + H(X)-\delta)}
+$$
+As $n \rightarrow \infty$, $\frac{\log(\eta)}{n} +  H(X)-\delta \rightarrow H(X)-\delta$, because $\lim_{n\rightarrow \infty}\frac{\log(\eta)}{n} = 0$
+Therefore
+$$
+\left|A \cap T_{[X] \delta}^{n}\right| 2^{-n(H(X)-\delta^{\prime})} \geq 1
+$$
+and
+$$
+\left|A \cap T_{[X] \delta}^{n}\right| \geq 2^{n(H(X)-\delta^{\prime})}
+$$
+where $\delta^{\prime} \rightarrow 0$ as $\delta \rightarrow 0$ and $n \rightarrow \infty$
+
+\vspace{10pt}
+In the following problems, for a sequence $\mathbf{x} \in \mathcal{X}^{n},$ let $q_{\mathbf{x}}$ be the empirical distribution of $\mathbf{x},$ i.e., $q_{\mathbf{x}}(x)=n^{-1} N(x ; \mathbf{x})$ for all $x \in \mathcal{X}$. Similarly, for a pair of sequences $(\mathbf{x}, \mathbf{y}) \in \mathcal{X}^{n} \times \mathcal{Y}^{n},$ let $q_{\mathbf{x}, \mathbf{y}}$ be the joint empirical distribution of $(\mathbf{x}, \mathbf{y}),$ i.e., $q_{\mathbf{x}, \mathbf{y}}(x, y)=n^{-1} N(x, y ; \mathbf{x}, \mathbf{y})$ for all $(x, y) \in$
+$\mathcal{X} \times \mathcal{Y}$\\
+\vspace{10pt}
+7. Alternative definition of strong typicality. Show that (6.1) is equivalent to
+$$
+V\left(q_{\mathbf{x}}, p\right) \leq \delta
+$$
+where $V(\cdot, \cdot)$ denotes the variational distance. Thus strong typicality can be regarded as requiring the empirical distribution of a sequence to be close to the probability distribution of the generic random variable in variational distance. Also compare the result here with the alternative definition of weak typicality (Problem 5 in Chapter 5 ).
+
+\paragraph{Answer:}
+$$
+V\left(q_{\mathbf{x}}, p\right)=
+\sum_{x \in \mathcal{X}}\left| q_{\mathbf{x}} -p(x)\right| = 
+\sum_{x \in \mathcal{X}}\left|\frac{1}{n} N(x ; \mathbf{x})-p(x)\right|  \leq \delta
+$$
+We can see that strong typicality is stronger than weak in the sense that weak typicality only requires the closeness in entropy. Note that $ d(q_x, p) = 
+\left|D\left(q_{\mathbf{x}} \| p\right)+H\left(q_{\mathbf{x}}\right)-H(p)\right| = 0 
+$ when $q_x = p$ \\
+\vspace{10pt}
+\noindent 8. The empirical distribution $q_{\mathbf{x}}$ of the sequence $\mathbf{x}$ is also called the type of
+x. Assuming that $\mathcal{X}$ is finite, show that there are a total of $\left(\begin{array}{c}n+|\mathcal{X}|-1 \\ n\end{array}\right)$ distinct types $q_{\mathbf{x}} .$ Hint: There are $\left(\begin{array}{c}a+b-1 \\ a\end{array}\right)$ ways to distribute $a$ identical balls in $b$ boxes.
+
+\paragraph{Answer:}
+The original problem may be reformulated as arranging $k-1$ bars and the $n$ balls, by selecting $n$ positions for balls out of $n+k-1$ locations.
+$$
+\underbrace{* * *}_{n \text { balls }}  \underbrace{[||||||]}_{k-1 \text { bars }}
+$$
+Directly apply this idea to get emperical distribution $q_x$, treat as for assigning each sample $x$ into $|\mathcal{X}|$ boxes. Which gives the result
+$$\left(\begin{array}{c}n+|\mathcal{X}|-1 \\ n\end{array}\right)$$
 
 \newpage
 \section{Discrete Memoryless Channels}
-\subsection{7.1 Definition and Capacity}
-\begin{tcolorbox}
-	\paragraph{Definition 7.1.} Let $\mathcal{X}$ and $\mathcal{Y}$ be discrete alphabets, and $p(y \mid x)$ be a transition matrix from $\mathcal{X}$ to $\mathcal{Y}$. $A$ \textcolor{blue}{discrete channel $p(y \mid x)$} is a single input-single output system with input random variable $X$ taking values in $\mathcal{X}$ and output random variable $Y$ taking values in $\mathcal{Y}$ such that
-	$$
-	\operatorname{Pr}\{X=x, Y=y\}=\operatorname{Pr}\{X=x\} p(y \mid x)
-	$$
-	for all $(x, y) \in \mathcal{X} \times \mathcal{Y}$
-\end{tcolorbox}
-Define random variables $Z_{x}$ with $\mathcal{Z}_{x}=\mathcal{Y}$ for $x \in \mathcal{X}$ such that
-$$
-\operatorname{Pr}\left\{Z_{x}=y\right\}=p(y \mid x)
-$$
-for all $y \in \mathcal{Y}$. We assume that $Z_{x}, x \in \mathcal{X}$ are mutually independent and also independent of $X .$ Further define the random variable
-$$
-Z=\left(Z_{x}: x \in \mathcal{X}\right)
-$$
-called the noise variable. Note that $Z$ is independent of $X .$ Now define a random variable taking values in $\mathcal{Y}$ as
-$$
-Y=Z_{x} \quad \text { if } X=x
-$$
-Evidently, $Y$ is a function of $X$ and $Z .$ Then for $x \in \mathcal{X}$ such that $\operatorname{Pr}\{X=$ $x\}>0,$ we have
-$$
-\begin{aligned}
-\operatorname{Pr}\{X=x, Y=y\} &=\operatorname{Pr}\{X=x\} \operatorname{Pr}\{Y=y \mid X=x\} \\
-&=\operatorname{Pr}\{X=x\} \operatorname{Pr}\left\{Z_{x}=y \mid X=x\right\} \\
-&=\operatorname{Pr}\{X=x\} \operatorname{Pr}\left\{Z_{x}=y\right\} \\
-&=\operatorname{Pr}\{X=x\} p(y \mid x)
-\end{aligned}
-$$
+
+
+\subsection{Homework 7}
+\begin{itemize}
+	\item Chapter $7,$ Problems 3,7,8,9,10,11
+	\item Supplementary Problems:
+	\begin{enumerate}
+		\item Let $X$ and $Y$ be the input and output of a BSC. Show that if $\epsilon=0.5,$ then $X$ and $Y$ are independent.
+		\item Show in Example 7.8 that $H(Y \mid E)=(1-\gamma) h_{b}(a)$
+	\end{enumerate}
+\end{itemize}
 
 \begin{tcolorbox}
-	\paragraph{Definition 7.2.} Let $\mathcal{X}, \mathcal{Y},$ and $\mathcal{Z}$ be discrete alphabets. Let $\alpha: \mathcal{X} \times \mathcal{Z} \rightarrow \mathcal{Y}$
-	and $Z$ be a random variable taking values in $\mathcal{Z},$ called the noise variable. $A$ discrete channel $(\alpha, Z)$ is a single input-single output system with input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$. For any input random variable $X,$ the noise variable $Z$ is independent of $X,$ and the output random variable $Y$ is given by
-	$$
-	Y=\alpha(X, Z)
-	$$
+\paragraph{3. Memory increases capacity.} Consider a BSC with crossover probability $0<\epsilon<1$ represented by $X_{i}=Y_{i}+Z_{i} \bmod 2,$
+where $X_{i}, Y_{i},$ and $Z_{i}$ are respectively, the input, the output, and the noise variable at time $i .$ Then
+$$
+\operatorname{Pr}\left\{Z_{i}=0\right\}=1-\epsilon \quad \text { and } \quad \operatorname{Pr}\left\{Z_{i}=1\right\}=\epsilon
+$$
+for all $i .$ We assume that $\left\{X_{i}\right\}$ and $\left\{Z_{i}\right\}$ are independent, but we make no assumption that $Z_{i}$ are i.i.d. so that the channel may have memory. \\
+a) Prove that
+$$
+I(\mathbf{X} ; \mathbf{Y}) \leq n-h_{b}(\epsilon)
+$$
+b) Show that the upper bound in (a) can be achieved by letting $X_{i}$ be
+i.i.d. bits taking the values 0 and 1 with equal probability and $Z_{1}=$ $Z_{2}=\cdots=Z_{n}$ \\
+c) Show that with the assumptions in (b), $I(\mathbf{X} ; \mathbf{Y})>n C,$ where $C=$ $1-h_{b}(\epsilon)$ is the capacity of the $\mathrm{BSC}$ if it is memoryless.
+
+\textcolor{red}{(Typo: $Y_i = X_i + Z_i, \qquad X_i+Y_i =( X_i + X_i) + Z_i = 0  + Z_i = Z_i$)}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+7 . Let
+$$
+P(\epsilon)=\left[\begin{array}{cc}
+	1-\epsilon & \epsilon \\
+	\epsilon & 1-\epsilon
+\end{array}\right]
+$$
+be the transition matrix for a BSC with crossover probability $\epsilon .$ Define $a * b=(1-a) b+a(1-b)$ for $0 \leq a, b \leq 1$\\
+a) Prove that a DMC with transition matrix $P\left(\epsilon_{1}\right) P\left(\epsilon_{2}\right)$ is equivalent to a BSC with crossover probability $\epsilon_{1} * \epsilon_{2} .$ Such a channel is the cascade of two BSCs with crossover probabilities $\epsilon_{1}$ and $\epsilon_{2}$ respectively.\\
+b) Repeat (a) for a DMC with transition matrix $P\left(\epsilon_{2}\right) P\left(\epsilon_{1}\right)$.\\
+c) Prove that
+$$
+1-h_{b}\left(\epsilon_{1} * \epsilon_{2}\right) \leq \min \left(1-h_{b}\left(\epsilon_{1}\right), 1-h_{b}\left(\epsilon_{2}\right)\right)
+$$
+This means that the capacity of the cascade of two BSCs is upper bounded by the capacity of either of the two BSCs.\\
+d) Prove that a DMC with transition matrix $P(\epsilon)^{n}$ is equivalent to a BSC with crossover probabilities $\frac{1}{2}\left(1-(1-2 \epsilon)^{n}\right)$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\paragraph{8. Symmetric channel.} A DMC is symmetric if the rows of the transition matrix $p(y \mid x)$ are permutations of each other and so are the columns. Determine the capacity of such a channel. \\
+See Section 4.5 in Gallager [129] for a more general discussion.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+9. Let $C_{1}$ and $C_{2}$ be the capacities of two DMCs with transition matrices $P_{1}$ and $P_{2},$ respectively, and let $C$ be the capacity of the DMC with transition $\operatorname{matrix} P_{1} P_{2} .$ Prove that $C \leq \min \left(C_{1}, C_{2}\right)$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+10. Two parallel channels. Let $C_{1}$ and $C_{2}$ be the capacities of two DMCs $p_{1}\left(y_{1} \mid x_{1}\right)$ and $p_{2}\left(y_{2} \mid x_{2}\right),$ respectively. Determine the capacity of the DMC
+$$
+p\left(y_{1}, y_{2} \mid x_{1}, x_{2}\right)=p_{1}\left(y_{1} \mid x_{1}\right) p_{2}\left(y_{2} \mid x_{2}\right)
+$$
+Hint: Prove that
+$$
+I\left(X_{1}, X_{2} ; Y_{1}, Y_{2}\right) \leq I\left(X_{1} ; Y_{1}\right)+I\left(X_{2} ; Y_{2}\right)
+$$
+if $p\left(y_{1}, y_{2} \mid x_{1}, x_{2}\right)=p_{1}\left(y_{1} \mid x_{1}\right) p_{2}\left(y_{2} \mid x_{2}\right)$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+11. In the system below, there are two channels with transition matrices $p_{1}\left(y_{1} \mid x\right)$ and $p_{2}\left(y_{2} \mid x\right) .$ These two channels have a common input alphabet $\mathcal{X}$ and output alphabets $\mathcal{Y}_{1}$ and $\mathcal{Y}_{2},$ respectively, where $\mathcal{Y}_{1}$ and $\mathcal{Y}_{2}$ are disjoint. The position of the switch is determined by a random variable $Z$ which is independent of $X,$ where $\operatorname{Pr}\{Z=1\}=\lambda$
+a) Show that
+$$
+I(X ; Y)=\lambda I\left(X ; Y_{1}\right)+(1-\lambda) I\left(X ; Y_{2}\right)
+$$
+b) The capacity of the system is given by $C=\max _{p(x)} I(X ; Y)$. Show that $C \leq \lambda C_{1}+(1-\lambda) C_{2},$ where $C_{i}=\max _{p(x)} I\left(X ; Y_{i}\right)$ is the capacity
+of the channel with transition matrix $p_{i}\left(y_{i} \mid x\right), i=1,2$
+c) If both $C_{1}$ and $C_{2}$ can be achieved by a common input distribution, show that $C=\lambda C_{1}+(1-\lambda) C_{2}$
 \end{tcolorbox}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{imgs/exp7_2.png}
-	\caption{Illustrations of (a) a discrete channel $p(y|x)$ and (b) a discrete channel $(\alpha, Z)$.}
-	\label{fig:my_label}
+	\includegraphics[width=0.3\linewidth]{imgs/exp7_11.png}
+	\caption{Problem 11.}
 \end{figure}
-The next definition gives the condition for the equivalence of the two specifications of a discrete channel according to Definitions 7.1 and 7.2, respectively.
-
-\begin{tcolorbox}
-	\paragraph{Definition 7.3.} Two discrete channels $p(y \mid x)$ and $(\alpha, Z)$ defined on the same input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$ are equivalent if
-	$$
-	\operatorname{Pr}\{\alpha(x, Z)=y\}=p(y \mid x)
-	$$
-	for all $x$ and $y$
-\end{tcolorbox}
-
-\begin{tcolorbox}
-	\paragraph{Definition 7.5.} $A$ discrete memoryless channel $(\alpha, Z)$ is a sequence of replicates of a generic discrete channel $(\alpha, Z) .$ These discrete channels are indexed by a discrete-time index $i,$ where $i \geq 1,$ with the ith channel being available for transmission at time i. Transmission through a channel is assumed to be instantaneous. Let $X_{i}$ and $Y_{i}$ be, respectively, the input and the output of the DMC at time $i$, and let $T_{i-}$ denote all the random variables that are generated in the system before $X_{i} .$ The noise variable $Z_{i}$ for the transmission at time $i$ is a copy of the generic noise variable $Z$ and is independent of $\left(X_{i}, T_{i-}\right) .$ The
-	output of the DMC at time i is given by
-	$$
-	Y_{i}=\alpha\left(X_{i}, Z_{i}\right)
-	$$
-\end{tcolorbox}
-
-We will prove subsequently that C is in fact the maximum rate at which
-information can be communicated reliably through a DMC.
-\begin{tcolorbox}
-	\paragraph{Definition 7.6.} The capacity of a discrete memoryless channel $p(y \mid x)$ is defined as
-	$$
-	C=\max _{p(x)} I(X ; Y)
-	$$
-	where $X$ and $Y$ are, respectively, the input and the output of the generic discrete channel, and the maximum is taken over all input distributions $p(x)$.
-\end{tcolorbox}
-From the above definition, we see that $C \geq 0$
-because $I(X ; Y) \geq 0$ for all input distributions $p(x)$. By Theorem 2.43 , we have
-$$
-C=\max _{p(x)} I(X ; Y) \leq \max _{p(x)} H(X)=\log |\mathcal{X}|
-$$
-Likewise, we have $C \leq \log |\mathcal{Y}|$.
-Therefore,
-$$
-C \leq \min (\log |\mathcal{X}|, \log |\mathcal{Y}|)
-$$
-
-\subsection{The Channel Coding Theorem}
-\begin{tcolorbox}
-	\paragraph{Definition 7.9.} An $(n, M)$ code for a discrete memoryless channel with input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$ is defined by an encoding function
-	$$
-	f:\{1,2, \cdots, M\} \rightarrow \mathcal{X}^{n}
-	$$
-	and a decoding function
-	$$
-	g: \mathcal{Y}^{n} \rightarrow\{1,2, \cdots, M\}
-	$$
-	The set $\{1,2, \cdots, M\},$ denoted by $ \mathcal{W},$ is called the \textcolor{blue}{message set}. The sequences $f(1), f(2), \cdots, f(M)$ in $\mathcal{X}^{n}$ are called \textcolor{blue}{codewords}, and the set of codewords is called the \textcolor{blue}{codebook}.
-\end{tcolorbox}
-
-\begin{tcolorbox}
-	\paragraph{Definition 7.10.} For all $1 \leq w \leq M,$ let
-	$$
-	\lambda_{w}=\operatorname{Pr}\{\hat{W} \neq w \mid W=w\}=\sum_{\mathbf{y} \in \mathcal{Y}^{n}: g(\mathbf{y}) \neq w} \operatorname{Pr}\{\mathbf{Y}=\mathbf{y} \mid \mathbf{X}=f(w)\}
-	$$
-	be the conditional probability of error given that the message is $w$.
-	
-	\paragraph{Definition 7.11.} The maximal probability of error of an $(n, M)$ code is defined as
-	$$
-	\lambda_{\max }=\max _{w} \lambda_{w}
-	$$
-	
-	\paragraph{Definition 7.12.} The average probability of error of an $(n, M)$ code is defined as
-	$$
-	P_{e}=\operatorname{Pr}\{\hat{W} \neq W\}
-	$$
-\end{tcolorbox}
-$$
-\begin{aligned}
-P_{e} &=\operatorname{Pr}\{\hat{W} \neq W\} \\
-&=\sum_{w} \operatorname{Pr}\{W=w\} \operatorname{Pr}\{\hat{W} \neq W \mid W=w\} \\
-&=\sum_{w} \frac{1}{M} \operatorname{Pr}\{\hat{W} \neq w \mid W=w\} \\
-&=\frac{1}{M} \sum_{w} \lambda_{w} \\
-&\leq \lambda_{\max }
-\end{aligned}
-$$
-
-\begin{tcolorbox}
-	\paragraph{Definition 7.13.} The rate of an $(n, M)$ channel code is $n^{-1} \log M$ in bits per use.
-\end{tcolorbox}
-
-\begin{tcolorbox}
-	\paragraph{Definition 7.14.} A rate $R$ is asymptotically achievable for a discrete memoryless channel if for any $\epsilon>0,$ there exists for sufficiently large $n$ an $(n, M)$ code such that
-	$$
-	\frac{1}{n} \log M>R-\epsilon
-	$$
-	and
-	$$
-	\lambda_{\max }<\epsilon
-	$$
-	For brevity, an asymptotically achievable rate will be referred to as an achievable rate.
-\end{tcolorbox}
-
-\begin{tcolorbox}
-	\paragraph{Theorem 7.15 (Channel Coding Theorem).} A rate $R$ is achievable for $a$ discrete memoryless channel if and only if $R \leq C,$ the capacity of the channel.
-\end{tcolorbox}
-
-\subsection{The Converse}
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{imgs/exp7_9.png}
-	\caption{The dependency graph for a channel code without feedback.}
-	\label{fig:my_label}
-\end{figure}
-
-From the dependency graph, we see that for all $(w, \mathbf{x}, \mathbf{y}, \hat{w}) \in \mathcal{W} \times \mathcal{X}^{n} \times \mathcal{Y}^{n} \times \hat{\mathcal{W}}$
-such that $q(\mathbf{x})>0$ and $q(\mathbf{y})>0$
-$$
-q(w, \mathbf{x}, \mathbf{y} \hat{w})=q(w)\left(\prod_{i=1}^{n} q\left(x_{i} \mid w\right)\right)\left(\prod_{i=1}^{n} p\left(y_{i} \mid x_{i}\right)\right) q(\hat{w} \mid \mathbf{y})
-$$
-Note that $q(w)>0$ for all $w$ so that $q\left(x_{i} \mid w\right)$ are well defined, and $q\left(x_{i} \mid w\right)$ and $q(\hat{w} \mid \mathbf{y})$ are both deterministic. Denote the set of nodes $X_{1}, X_{2}, \cdots, X_{n}$ by $\mathbf{X}$ and the set of nodes $Y_{1}, Y_{2}, \cdots, Y_{n}$ by $\mathbf{Y}$. We notice the following structure in the dependency graph: all the edges from $W$ end in $\mathbf{X},$ all the edges from $\mathbf{X}$ end in $Y,$ and all the edges from $Y$ end in $\hat{W} .$ This suggests that the random variables $W, \mathbf{X}, \mathbf{Y},$ and $\hat{W}$ form \textcolor{blue}{the Markov chain}
-$$
-W \rightarrow \mathbf{X} \rightarrow \mathbf{Y} \rightarrow \hat{W}
-$$
-The validity of this Markov chain can be formally justified by applying Proposition 2.9 to $(7.97),$ so that for all $(w, \mathbf{x}, \mathbf{y}, \hat{w}) \in \mathcal{W} \times \mathcal{X}^{n} \times \mathcal{Y}^{n} \times \hat{\mathcal{W}}$ such that
-$q(\mathbf{x})>0$ and $q(\mathbf{y})>0,$ we can write
-$$
-q(w, \mathbf{x}, \mathbf{y}, \hat{w})=q(w) q(\mathbf{x} \mid w) q(\mathbf{y} \mid \mathbf{x}) q(\hat{w} \mid \mathbf{y})
-$$
-Consider a channel code whose probability of error is arbitrarily small. since $W, \mathbf{X}, \mathbf{Y},$ and $\hat{W}$ form the Markov chain in $(7.98),$ the information diagram for these four random variables is as shown in Figure $7.10 .$ Moreover, $\mathbf{X}$ is a function of $W,$ and $\hat{W}$ is a function of $\mathbf{Y} .$ These two relations are equivalent to
-$H(\mathbf{X} \mid W)=0$ and $H(\hat{W} \mid \mathbf{Y})=0$
-respectively. Since the probability of error is arbitrarily small, $W$ and $\hat{W}$ are essentially identical. To gain insight into the problem, we assume for the time being that $W$ and $\hat{W}$ are equivalent, so that
-$$
-H(\hat{W} \mid W)=H(W \mid \hat{W})=0
-$$
-since the $I$ -Measure $\mu^{*}$ for a Markov chain is nonnegative, the constraints in $(7.102)-(7.104)$ imply that $\mu^{*}$ vanishes on all the atoms in Figure 7.10 marked with a 0. Immediately, we see that
-$$
-H(W)=I(\mathbf{X} ; \mathbf{Y})
-$$
-That is, the amount of information conveyed through the channel is essentially the mutual information between the input sequence and the output sequence of the channel.
-
-For a single transmission, we see from the definition of channel capacity that the mutual information between the input and the output cannot exceed the capacity of the channel, i.e., for all $1 \leq i \leq n$
-$$
-I\left(X_{i} ; Y_{i}\right) \leq C
-$$
-Summing $i$ from 1 to $n,$ we have
-$$
-\sum_{i=1}^{n} I\left(X_{i} ; Y_{i}\right) \leq n C
-$$
-\begin{tcolorbox}
-	\paragraph{Lemma 7.16.} For a discrete memoryless channel used with a channel code without feedback, for any $n \geq 1$,
-	$$
-	I(\mathbf{X} ; \mathbf{Y}) \leq \sum_{i=1}^{n} I\left(X_{i} ; Y_{i}\right)
-	$$
-	where $X_{i}$ and $Y_{i}$ are, respectively, the input and the output of the channel at time $i$.
-\end{tcolorbox}
-Then the converse of the channel coding theorem then follows from
-$$
-\begin{aligned}
-\frac{1}{n} \log M =\frac{1}{n} H(W) 
-&=\frac{1}{n} I(\mathbf{X} ; \mathbf{Y}) \\
-& \leq \frac{1}{n} \sum_{i=1}^{n} I\left(X_{i} ; Y_{i}\right) \\
-& \leq C
-\end{aligned}
-$$
-
-We now formally prove the converse of the channel coding theorem. Let $R$ be an achievable rate, i.e., for any $\epsilon>0,$ there exists for sufficiently large $n$ an $(n, M)$ code such that
-$$
-\frac{1}{n} \log M>R-\epsilon, \qquad
-\lambda_{\max }<\epsilon
-$$
-Consider
-$$
-\begin{aligned}
-\log M & \stackrel{a}{=} H(W) -H(W \mid \hat{W})+I(W ; \hat{W}) \\
-& \stackrel{a}{\leq} H(W \mid \hat{W})+I(\mathbf{X} ; \mathbf{Y}) \\
-& \leq H(W \mid \hat{W})+\sum_{i=1}^{n} I\left(X_{i} ; Y_{i}\right) \\
-& \leq H(W \mid \hat{W})+n C \qquad \text{ (7.126)}
-\end{aligned}
-$$
-where
-(a) follows from (7.80)
-(b) follows from the data processing theorem since $W \rightarrow \mathbf{X} \rightarrow \mathbf{Y} \rightarrow \hat{W}$
-(c) follows from Lemma 7.16
-(d) follows from (7.107)
-From (7.87) and Fano's inequality (cf. Corollary 2.48 ), we have
-$$
-H(W \mid \hat{W})<1+P_{e} \log M
-$$
-Therefore, from (7.126)
-$$
-\begin{aligned}
-\log M &<1+P_{e} \log M+n C \\
-& \leq 1+\lambda_{\max } \log M+n C \\
-&<1+\epsilon \log M+n C
-\end{aligned}
-$$
-where we have used (7.92) and $(7.121),$ respectively, to obtain the last two inequalities. Dividing by $n$ and rearranging the terms, we have
-$$
-\frac{1}{n} \log M<\frac{\frac{1}{n}+C}{1-\epsilon}
-$$
-and from $(7.120),$ we obtain
-$$
-R-\epsilon<\frac{\frac{1}{n}+C}{1-\epsilon}
-$$
-For any $\epsilon>0,$ the above inequality holds for all sufficiently large $n .$ Let $n \rightarrow \infty$ and then $\epsilon \rightarrow 0,$ we conclude that
-$$
-R \leq C
-$$
-From the above proof, we can obtain an asymptotic bound on $P_{e}$ when the rate of the code $\frac{1}{n} \log M$ is greater than $C$. Consider (7.128) and obtain
-$$
-P_{e} \geq 1-\frac{1+n C}{\log M}=1-\frac{\frac{1}{n}+C}{\frac{1}{n} \log M}
-$$
-Then
-$$
-P_{e} \geq 1-\frac{\frac{1}{n}+C}{\frac{1}{n} \log M} \approx 1-\frac{C}{\frac{1}{n} \log M}
-$$
-when $n$ is large. This asymptotic bound on $P_{e},$ which is strictly positive if $\frac{1}{n} \log M>C$. The converse of the channel coding theorem we have proved is called the weak converse. A stronger version of this result called the strong converse can be proved, which says that $P_{e} \rightarrow 1$ as $n \rightarrow \infty$ if there exists an $\epsilon>0$ such that $\frac{1}{n} \log M \geq C+\epsilon$ for all $n$.
-
-\subsection{Achievability}
-\subsection{A Discussion}
-\subsection{Feedback Capacity}
-\subsection{Separation of Source and Channel Coding}
 \end{document}
