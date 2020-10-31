@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  28 OCT 2020 10:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  31 OCT 2020 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -882,6 +882,12 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1232,17 +1238,22 @@ File: imgs/exp7_9.png Graphic file (type png)
 Package pdftex.def Info: imgs/exp7_9.png  used on input line 2015.
 (pdftex.def)             Requested size: 249.33128pt x 159.77254pt.
  [41 <./imgs/exp7_9.png>] [42] [43]
-(./main.aux)
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 2202--2203
+
+ []
+
+[45] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28953 strings out of 492649
- 601014 string characters out of 6129623
+ 28961 strings out of 492649
+ 601132 string characters out of 6129623
  685322 words of memory out of 5000000
- 32403 multiletter control sequences out of 15000+600000
- 543049 words of font info for 53 fonts, out of 8000000 for 9000
+ 32410 multiletter control sequences out of 15000+600000
+ 543735 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10487b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1267,11 +1278,12 @@ e/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/
 2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/20
 18/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (43 pages, 840596 bytes).
+exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on main.pdf (45 pages, 866039 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 330 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

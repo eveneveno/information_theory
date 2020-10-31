@@ -2121,8 +2121,96 @@ P_{e} \geq 1-\frac{\frac{1}{n}+C}{\frac{1}{n} \log M} \approx 1-\frac{C}{\frac{1
 $$
 when $n$ is large. This asymptotic bound on $P_{e},$ which is strictly positive if $\frac{1}{n} \log M>C$. The converse of the channel coding theorem we have proved is called the weak converse. A stronger version of this result called the strong converse can be proved, which says that $P_{e} \rightarrow 1$ as $n \rightarrow \infty$ if there exists an $\epsilon>0$ such that $\frac{1}{n} \log M \geq C+\epsilon$ for all $n$.
 
+\newpage
 \subsection{Achievability}
+
+\begin{tcolorbox}
+\paragraph{Lemma 7.17 .} Let $\left(\mathbf{X}^{\prime}, \mathbf{Y}^{\prime}\right)$ be $n$ i.i.d. copies of a pair of generic random vari-
+ables $\left(X^{\prime}, Y^{\prime}\right),$ where $X^{\prime}$ and $Y^{\prime}$ are independent and have the same marginal distributions as $X$ and $Y$, respectively. Then
+$$
+\operatorname{Pr}\left\{\left(\mathbf{X}^{\prime}, \mathbf{Y}^{\prime}\right) \in T_{[X Y] \delta}^{n}\right\} \leq 2^{-n(I(X ; Y)-\tau)}
+$$
+where $\tau \rightarrow 0$ as $\delta \rightarrow 0$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\paragraph{Random coding scheme}
+\begin{enumerate}
+	\item Construct the codebook $\mathcal{C}$ of an $(n, M)$ code randomly by generating $M$ codewords in $\mathcal{X}^{n}$ independently and identically according to $p(x)^{n} .$ Denote these codewords by $\tilde{\mathbf{X}}(1), \tilde{\mathbf{X}}(2), \cdots, \tilde{\mathbf{X}}(M)$
+	\item Reveal the codebook $\mathcal{C}$ to both the encoder and the decoder.
+	\item A message $W$ is chosen from $\mathcal{W}$ according to the uniform distribution.
+	\item The sequence $\mathbf{X}=\tilde{\mathbf{X}}(W),$ namely the $W$ th codeword in the codebook $\mathcal{C}$ is transmitted through the channel.
+	\item The channel outputs a sequence $Y$ according to 	(cf. (7.101))
+	$$
+	\operatorname{Pr}\{\mathbf{Y}=\mathbf{y} \mid \tilde{\mathbf{X}}(W)=\mathbf{x}\}=\prod_{i=1}^{n} p\left(y_{i} \mid x_{i}\right)
+	$$
+	\item The sequence $\mathbf{Y}$ is decoded to the message $w$ if $(\tilde{\mathbf{X}}(w), \mathbf{Y}) \in T_{[X Y] \delta}^{n}$ and there does not exist $w^{\prime} \neq w$ such that $\left(\tilde{\mathbf{X}}\left(w^{\prime}\right), \mathbf{Y}\right) \in T_{[X Y] \delta}^{n} .$ Otherwise, $\mathbf{Y}$ is decoded to a constant message in $\mathcal{W}$. Denote by $\hat{W}$ the message to which $\mathbf{Y}$ is decoded.
+\end{enumerate}
+\end{tcolorbox}
+We now analyze the performance of this random coding scheme. Let
+$$
+E r r=\{\hat{W} \neq W\}
+$$
+since $\operatorname{Pr}\{\operatorname{Err} \mid W=w\}$ are identical for all $w$ by symmetry in the code construction, we have
+$$
+\begin{aligned}
+\operatorname{Pr}\{E r r\} &=\sum_{w=1}^{M} \operatorname{Pr}\{\operatorname{Err} \mid W=w\} \operatorname{Pr}\{W=w\} \\
+& = \operatorname{Pr}\{\operatorname{Err} \mid W=1\} \sum_{w=1}^{M} \operatorname{Pr}\{W=w\}  \\
+& = \operatorname{Pr}\{\operatorname{Err} \mid W=1\} \\
+& =\operatorname{Pr}\left\{(\tilde{\mathbf{X}}(w), \mathbf{Y}) \in T_{[X Y] \delta}^{n} \mid W=1\right\} \\
+&\leq 2^{-n(I(X ; Y)-\tau)}
+\end{aligned}
+$$
+
+$$
+\operatorname{Pr}\{E r r\}<\frac{\epsilon}{2}
+$$
+Thus by discarding the worse half of the codewords in $\mathcal{C}^{*},$ for the resulting codebook, the maximal probability of error $\lambda_{\max }$ is less than $\epsilon .$ Using (7.183) and considering
+$$
+\begin{aligned}
+\frac{1}{n} \log \frac{M}{2} &=\frac{1}{n} \log M-\frac{1}{n} \\
+&>\left(I(X ; Y)-\frac{\epsilon}{2}\right)-\frac{1}{n} \\
+&>I(X ; Y)-\epsilon
+\end{aligned}
+$$
+when $n$ is sufficiently large, we see that the rate of the resulting code is greater than $I(X ; Y)-\epsilon .$ Hence, we conclude that the rate $I(X ; Y)$ is achievable.
+
 \subsection{A Discussion}
 \subsection{Feedback Capacity}
+
+\begin{tcolorbox}
+\paragraph{Definition 7.18.} An $(n, M)$ code with complete feedback for a discrete memoryless channel with input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$ is defined by encoding functions
+$$
+f_{i}:\{1,2, \cdots, M\} \times \mathcal{Y}^{i-1} \rightarrow \mathcal{X}
+$$
+for $1 \leq i \leq n$ and a decoding function
+$$
+g: \mathcal{Y}^{n} \rightarrow\{1,2, \cdots, M\}
+$$
+\end{tcolorbox}
+\begin{tcolorbox}
+\paragraph{Definition 7.19.} $A$ rate $R$ is achievable with complete feedback for a discrete memoryless channel $p(y \mid x)$ if for any $\epsilon>0,$ the re exists for sufficiently large $n$ an $(n, M)$ code with complete feedback such that
+$$
+\frac{1}{n} \log M>R-\epsilon
+$$
+and
+$$
+\lambda_{\max }<\epsilon
+$$
+\end{tcolorbox}
+\begin{tcolorbox}
+\paragraph{Definition 7.20.} The feedback capacity, $C_{F B},$ of a discrete memoryless channel is the supremum of all the rates achievable by codes with complete feedback.\\
+
+\paragraph{Proposition 7.21.} The supremum in the definition of $C_{F B}$ in Definition 7.20 is the maximum.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+Lemma $7.22 .$ For all $1 \leq i \leq n$
+$$
+\left(W, \mathbf{Y}^{i-1}\right) \rightarrow X_{i} \rightarrow Y_{i}
+$$
+forms a Markov chain.
+\end{tcolorbox}
 \subsection{Separation of Source and Channel Coding}
+This result, sometimes called the \emph{separation theorem for source and channel coding}, says that asymptotic optimality can be achieved by separating source coding and channel coding. This theorem has significant engineering implication because the source code and the channel code can be designed separately without losing asymptotic optimality. Specifically, we only need to design the best source code for the information source and design the best channel code for the channel. Moreover, separation of source coding and channel coding facilitates the transmission of different information sources on the same channel because we need only change the source code for different in- formation sources. Likewise, separation of source coding and channel coding also facilitates the transmission of an information source on different channels because we need only change the channel code for different channels.Likewise, separation of source coding and channel coding also facilitates the transmission of an information source on different channels because we need only change the channel code for different channels.
 \end{document}
