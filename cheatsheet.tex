@@ -12,6 +12,7 @@
 \begin{document}
 \section{Introduction}
 \section{Information Measures}
+\subsection{Independence and Markov Chains}
 \paragraph{Definition 2.1} Two random variables $X$ and $Y$ are independent, denoted by $X \perp Y,$ if
 $$
 p(x, y)=p(x) p(y)
@@ -26,7 +27,7 @@ for all $x_{1}, x_{2}, \cdots, x_{n}$
 
 \paragraph{Definition 2.3 (Pairwise Independence)} For $n \geq 3,$ random variables $X_{1}, X_{2}, \cdots, X_{n}$ are pairwise independent if $X_{i}$ and $X_{j}$ are independent for all $1 \leq i<j \leq n$
 
-Definition 2.4 (Conditional Independence) For random variables $X, Y$, and $Z, X$ is independent of $Z$ conditioning on $Y,$ denoted by $X \perp Z \mid Y,$ if
+\paragraph{Definition 2.4 (Conditional Independence)} For random variables $X, Y$, and $Z, X$ is independent of $Z$ conditioning on $Y,$ denoted by $X \perp Z \mid Y,$ if
 $$
 p(x, y, z) p(y)=p(x, y) p(y, z)
 $$
@@ -47,15 +48,14 @@ for all $x, y,$ and $z$ such that $p(y)>0$
 \paragraph{Proposition 2.6 (Markov Chain)} For random variables $X_{1}, X_{2}, \cdots, X_{n}$ where $n \geq 3, X_{1} \rightarrow X_{2} \rightarrow \cdots \rightarrow X_{n}$ forms a Markov chain if
 $$
 \begin{array}{l}
-p\left(x_{1}, x_{2}, \cdots, x_{n}\right) p\left(x_{2}\right) p\left(x_{3}\right) \cdots p\left(x_{n-1}\right) \\
-\quad=p\left(x_{1}, x_{2}\right) p\left(x_{2}, x_{3}\right) \cdots p\left(x_{n-1}, x_{n}\right)
+p\left(x_{1}, x_{2}, \cdots, x_{n}\right) p\left(x_{2}\right) p\left(x_{3}\right) \cdots p\left(x_{n-1}\right) =p\left(x_{1}, x_{2}\right) p\left(x_{2}, x_{3}\right) \cdots p\left(x_{n-1}, x_{n}\right)
 \end{array}
 $$
 for all $x_{1}, x_{2}, \cdots, x_{n},$ or equivalently,
 $$
 \begin{array}{l}
-p\left(x_{1}, x_{2}, \cdots, x_{n}\right)= \\
-\quad\left\{\begin{array}{ll}
+p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=
+ \left\{\begin{array}{ll}
 p\left(x_{1}, x_{2}\right) p\left(x_{3} \mid x_{2}\right) \cdots p\left(x_{n} \mid x_{n-1}\right) & \text { if } p\left(x_{2}\right), p\left(x_{3}\right), \cdots, p\left(x_{n-1}\right)>0 \\
 0 & \text { otherwise. }
 \end{array}\right.
@@ -91,12 +91,12 @@ X_{\alpha_{1}} \rightarrow X_{\alpha_{2}} \rightarrow \cdots \rightarrow X_{\alp
 $$
 forms a Markov chain. That is, a subchain of $X_{1} \rightarrow X_{2} \rightarrow \cdots \rightarrow X_{n}$ is also a Markov chain.
 
-\paragraph{Example 2.11} Let $X_{1} \rightarrow X_{2} \rightarrow \cdots \rightarrow X_{10}$ form a Markov chain and $\alpha_{1}=\{1,2\}, \alpha_{2}=\{4\}, \alpha_{3}=\{6,8\},$ and $\alpha_{4}=\{10\}$ be subsets of $\mathcal{N}_{10} .$ Then
-Proposition 2.10 says that
-$$
-\left(X_{1}, X_{2}\right) \rightarrow X_{4} \rightarrow\left(X_{6}, X_{8}\right) \rightarrow X_{10}
-$$
-also forms a Markov chain.
+%\paragraph{Example 2.11} Let $X_{1} \rightarrow X_{2} \rightarrow \cdots \rightarrow X_{10}$ form a Markov chain and $\alpha_{1}=\{1,2\}, \alpha_{2}=\{4\}, \alpha_{3}=\{6,8\},$ and $\alpha_{4}=\{10\}$ be subsets of $\mathcal{N}_{10} .$ Then
+%Proposition 2.10 says that
+%$$
+%\left(X_{1}, X_{2}\right) \rightarrow X_{4} \rightarrow\left(X_{6}, X_{8}\right) \rightarrow X_{10}
+%$$
+%also forms a Markov chain.
 
 \paragraph{Proposition 2.12} Let $X_{1}, X_{2}, X_{3},$ and $X_{4}$ be random variables such that $p\left(x_{1}, x_{2}, x_{3}, x_{4}\right)$ is strictly positive. Then
 $$
@@ -112,10 +112,14 @@ $$
 	\item $p$ is not strictly positive because $p\left(x_{1}, x_{2}, x_{3}, x_{4}\right)=0$ if $x_{3} \neq\left(x_{1}, x_{2}\right)$ or $x_{4} \neq\left(x_{1}, x_{2}\right)$
 \end{itemize}
 
-\paragraph{Definition 2.13} The entropy $H(X)$ of a random variable $X$ is defined as
+\subsection{Shannon’s Information Measures}
+
+\begin{tcolorbox}
+\paragraph{Definition 2.13 (Entropy)} The entropy $H(X)$ of a random variable $X$ is defined as
 $$
 H(X)=-\sum_{x} p(x) \log p(x)
 $$
+\end{tcolorbox}
 \begin{itemize}
 	\item Convention: summation is taken over $\mathcal{S}_{X}$.
 	\item When the base of the logarithm is $\alpha,$ write $H(X)$ as $H_{\alpha}(X)$.
@@ -129,10 +133,9 @@ $$
 			\end{array}
 			$$
 	\item $H(X)$ depends only on the distribution of $X$ but not on the actual value taken by $X,$ hence also write $H(p)$
-	\item A bit in information theory is different from a bit in computer science.
 	\item Convention
 		$$
-		E g(X)=\sum_{x} p(x) g(x)
+		E[g(X)]=\sum_{x} p(x) g(x)
 		$$
 		where summation is over $\mathcal{S}_{X}$
 	\item linearity
@@ -143,12 +146,8 @@ $$
 $$
 H(X)=-E \log p(X)=-\sum_{x} p(x) \log p(x)
 $$
-	\item In probability theory, when $E g(X)$ is considered, usually $g(x)$ depends only on the value of $x$ but not on $p(x)$.
-\end{itemize}
-
-\paragraph{Binary Entropy Function}
-\begin{itemize}
-	\item For $0 \leq \gamma \leq 1$, define the binary entropy function
+	\item \textbf{(Binary Entropy Function)}
+	For $0 \leq \gamma \leq 1$, define the binary entropy function
 	$$
 	h_{b}(\gamma)=-\gamma \log \gamma-(1-\gamma) \log (1-\gamma)
 	$$
@@ -159,22 +158,31 @@ $$
 	$$
 	\item  $h_{b}(\gamma)$ achieves the maximum value 1 when $\gamma=\frac{1}{2}$.
 \end{itemize}
-
-\paragraph{Definition 2.14} The joint entropy $H(X, Y)$ of a pair of random variables $X$ and $Y$ is defined as
+\begin{tcolorbox}
+\paragraph{Definition 2.14 (Joint Entropy)} The joint entropy $H(X, Y)$ of a pair of random variables $X$, $Y$ is defined as
 $$
 H(X, Y)=-\sum_{x, y} p(x, y) \log p(x, y)=-E \log p(X, Y)
 $$
+\end{tcolorbox}
 
-\paragraph{Definition 2.15} For random variables $X$ and $Y,$ the conditional entropy of $Y$ given $X$ is defined as
+\begin{tcolorbox}
+\paragraph{Definition 2.15 (Conditional Entropy)} For random variables $X$ and $Y,$ the conditional entropy of $Y$ given $X$ is defined as
 $$
 H(Y \mid X)=-\sum_{x, y} p(x, y) \log p(y \mid x)=-E \log p(Y \mid X)
 $$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\paragraph{Definition (Entropy of $Y$ conditioning on $x$)}
+$$H(Y \mid X=x) = -\sum_{y} p(y \mid x) \log p(y \mid x)$$
+\end{tcolorbox}
 \begin{itemize}
 	\item Write
 	$$
 	H(Y \mid X)=\sum_{x} p(x)\left[-\sum_{y} p(y \mid x) \log p(y \mid x)\right]
 	$$
-	\item The inner sum is the entropy of $Y$ conditioning on a fixed $x \in \mathcal{S}_{X},$ denoted by $H(Y \mid X=x)$
+	\item The inner sum is the entropy of $Y$ conditioning on a fixed $x \in \mathcal{S}_{X},$ denoted by 
+	$$H(Y \mid X=x) = -\sum_{y} p(y \mid x) \log p(y \mid x)$$
 	\item Thus
 	$$
 	H(Y \mid X)=\sum_{x} p(x) H(Y \mid X=x)
@@ -207,10 +215,12 @@ H(X, Y) &=-E \log p(X, Y) \\
 \end{aligned}
 $$
 
-\paragraph{Definition 2.17} For random variables $X$ and $Y,$ the mutual information between $X$ and $Y$ is defined as
+\begin{tcolorbox}
+\paragraph{Definition 2.17 (Mutual Information)} For random variables $X$ and $Y,$ the mutual information between $X$ and $Y$ is defined as
 $$
 I(X ; Y)=\sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) p(y)}=E \log \frac{p(X, Y)}{p(X) p(Y)}
 $$
+\end{tcolorbox}
 Remark: $I(X ; Y)$ is symmetrical in $X$ and $Y$.
 \paragraph{Proposition 2.18} The mutual information between a random variable $X$ and itself is equal to the entropy of $X,$ i.e., $$I(X ; X)=H(X)$$
 \paragraph{Proposition 2.19}
@@ -226,10 +236,12 @@ I(X ; Y)=H(X)+H(Y)-H(X, Y)
 $$
 provided that all the entropies and conditional entropies are finite.
 
-\paragraph{Definition 2.20} For random variables $X, Y$ and $Z,$ the mutual information between $X$ and $Y$ conditioning on $Z$ is defined as
+\begin{tcolorbox}
+\paragraph{Definition 2.20 (Conditional Mutual Information)} For random variables $X, Y$ and $Z,$ the mutual information between $X$ and $Y$ conditioning on $Z$ is defined as
 $$
 I(X ; Y \mid Z)=\sum_{x, y, z} p(x, y, z) \log \frac{p(x, y \mid z)}{p(x \mid z) p(y \mid z)}=E \log \frac{p(X, Y \mid Z)}{p(X \mid Z) p(Y \mid Z)}
 $$
+\end{tcolorbox}
 Remark: $I(X ; Y \mid Z)$ is symmetrical in $X$ and $Y$.\\
 Similar to entropy, we have
 $$
@@ -261,6 +273,7 @@ Remark All Shannon's information measures are special cases of conditional mutua
 	\item For countable alphabets, Shannon’s information measures are everywhere discontinuous.
 \end{itemize}
 
+\subsection{Continuity of Shannon’s Information Measures for Fixed Finite Alphabets}
 \paragraph{Definition 2.23} Let $p$ and $q$ be two probability distributions on a common alphabet $\mathcal{X}$. The variational distance between $p$ and $q$ is defined as
 $$
 V(p, q)=\sum_{x \in \mathcal{X}}|p(x)-q(x)|
@@ -278,19 +291,33 @@ $$
 V(p, q)<\delta
 $$
 
+\subsection{Chain Rules}
+\begin{tcolorbox}
 \paragraph{Proposition 2.24 (Chain Rule for Entropy)}
 $$
 H\left(X_{1}, X_{2}, \cdots, X_{n}\right)=\sum_{i=1}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)
 $$
+\end{tcolorbox}
+Proof by induction.
+$$
+\begin{aligned}
+H\left(X_{1}, \cdots, X_{m}, X_{m+1}\right) &= \color{red} H\left(X_{1}, \cdots, X_{m}\right)+H\left(X_{m+1} \mid X_{1}, \cdots, X_{m}\right) \\
+&=\sum_{i=1}^{m} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)+H\left(X_{m+1} \mid X_{1}, \cdots, X_{m}\right) \\
+&=\sum_{i=1}^{m+1} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)
+\end{aligned}
+$$
+
+\begin{tcolorbox}
 \paragraph{Proposition 2.25 (Chain Rule for Conditional Entropy)}
 $$
 H\left(X_{1}, X_{2}, \cdots, X_{n} \mid Y\right)=\sum_{i=1}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y\right)
 $$
+\end{tcolorbox}
 Proof (1).
 $$
 \begin{aligned}
 H\left(X_{1}, X_{2}, \cdots, X_{n} \mid Y\right)
-=& H\left(X_{1}, X_{2}, \cdots, X_{n}, Y\right)-H(Y) \\
+=& \color{red} H\left(X_{1}, X_{2}, \cdots, X_{n}, Y\right)-H(Y) \\
 =& H\left(\left(X_{1}, Y\right), X_{2}, \cdots, X_{n}\right)-H(Y) \\
 \stackrel{a}{=} & H\left(X_{1}, Y\right)+\sum_{i=2}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y\right)-H(Y) \\
 =&H\left(X_{1} \mid Y\right)+\sum_{i=2}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y\right) \\
@@ -303,27 +330,44 @@ Proof (2).
 $$
 \begin{aligned}
 H \left(X_{1}, X_{2}, \cdots, X_{n} \mid Y\right)
-&=\sum_{y} p(y) H\left(X_{1}, X_{2}, \cdots, X_{n} \mid Y=y\right) \\
+&= \color{red} \sum_{y} p(y) H\left(X_{1}, X_{2}, \cdots, X_{n} \mid Y=y\right) \\
 &=\sum_{y} p(y) \sum_{i=1}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y=y\right) \\
 &=\sum_{i=1}^{n} \sum_{y} p(y) H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y=y\right) \\
 &=\sum_{i=1}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y\right)
 \end{aligned}
 $$
-
+\begin{tcolorbox}
 \paragraph{Proposition 2.26 (Chain Rule for Mutual Information)}
 $$
 I\left(X_{1}, X_{2}, \cdots, X_{n} ; Y\right)=\sum_{i=1}^{n} I\left(X_{i} ; Y \mid X_{1}, \cdots, X_{i-1}\right)
 $$
+\end{tcolorbox}
+Proof.
+$$
+\begin{aligned}
+I\left(X_{1}, X_{2}, \cdots, X_{n} ; Y\right) 
+&=\color{red} H\left(X_{1}, X_{2}, \cdots, X_{n}\right)-H\left(X_{1}, X_{2}, \cdots, X_{n} \mid Y\right) \\
+&=\sum_{i=1}^{n}\left[H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)-H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}, Y\right)\right] \\
+&=\sum_{i=1}^{n} I\left(X_{i} ; Y \mid X_{1}, \cdots, X_{i-1}\right)
+\end{aligned}
+$$
+
+\begin{tcolorbox}
 \paragraph{Proposition 2.27 (Chain Rule for Conditional Mutual Information)}
 $$
 I\left(X_{1}, X_{2}, \cdots, X_{n} ; Y \mid Z\right)=\sum_{i=1}^{n} I\left(X_{i} ; Y \mid X_{1}, \cdots, X_{i-1}, Z\right)
 $$
+\end{tcolorbox}
 
-\paragraph{Definition 2.28} The informational divergence between two probability distributions $p$ and $q$ on a common alphabet $\mathcal{X}$ is defined as
+\subsection{Informational Divergence}
+\begin{tcolorbox}
+\paragraph{Definition 2.28 (Informational Divergence)} The informational divergence between two probability distributions $p$ and $q$ on a common alphabet $\mathcal{X}$ is defined as
 $$
 D(p \| q)=\sum_{x} p(x) \log \frac{p(x)}{q(x)}=E_{p} \log \frac{p(X)}{q(X)}
 $$
 where $E_{p}$ denotes expectation with respect to $p$.
+\end{tcolorbox}
+
 \begin{itemize}
 	\item Convention: \\
 	1. summation over $\mathcal{S}_{p}$\\
@@ -333,78 +377,186 @@ where $E_{p}$ denotes expectation with respect to $p$.
 	\item $D(\cdot \| \cdot)$ does not satisfy the triangular inequality.
 	\item Also called relative entropy or the Kullback-Leibler distance.
 \end{itemize}
+
+\begin{tcolorbox}
 \paragraph{Lemma 2.29 (Fundamental Inequality)} For any $a>0$,
 $$
 \ln a \leq a-1
 $$
 with equality if and only if $a=1$.
+\end{tcolorbox}
+
+\begin{tcolorbox}
 \paragraph{Corollary 2.30} For any $a>0$
 $$
 \ln a \geq 1-\frac{1}{a}
 $$
 with equality if and only if $a=1$.
+\end{tcolorbox}
 
+\paragraph{Theorem 2.6.2 (Cover: Jensen's inequality )} If $f$ is a convex function and $X$ is $a$ random variable, then
+$$
+E f(X) \geq f(E X)
+$$
+Moreover, if $f$ is strictly convex, then equality in (2.76) implies that $X=E X$ with probability $1,$ i.e., $X$ is a constant.
+
+\begin{tcolorbox}
 \paragraph{Theorem 2.31 (Divergence Inequality)} For any two probability distributions $p$ and $q$ on a common alphabet $\mathcal{X}$
 $$
 D(p \| q) \geq 0
 $$
 with equality if and only if $p=q$
-
-\paragraph{Theorem 2.32 (Log-Sum Inequality} For positive numbers $a_{1}, a_{2}, \cdots$ and nonnegative numbers $b_{1}, b_{2}, \cdots$ such that $\sum_{i} a_{i}<\infty$ and $0<\sum_{i} b_{i}<\infty$
+\end{tcolorbox}
+Proof. If $q(x)=0$ for some $x \in \mathcal{S}_{p},$ then $D(p \| q)=\infty$ and the theorem is trivially true. Therefore, we assume that $q(x)>0$ for all $x \in \mathcal{S}_{p}$. Consider
+$$
+\begin{aligned}
+D(p \| q) &=(\log e) \sum_{x \in \mathcal{S}_{p}} p(x) \color{red} \ln \frac{p(x)}{q(x)} \\
+& \geq(\log e) \sum_{x \in \mathcal{S}_{p}} p(x) \color{red} \left(1-\frac{q(x)}{p(x)}\right) \color{black} \text{ (Corollary 2.30)} \\
+&=(\log e)\left[\sum_{x \in \mathcal{S}_{p}} p(x)-\sum_{x \in \mathcal{S}_{p}} q(x)\right] \\
+& \geq 0
+\end{aligned}
+$$
+\begin{tcolorbox}
+\paragraph{Theorem 2.32 (Log-Sum Inequality)} For positive numbers $a_{1}, a_{2}, \cdots$ and nonnegative numbers $b_{1}, b_{2}, \cdots$ such that $\sum_{i} a_{i}<\infty$ and $0<\sum_{i} b_{i}<\infty$
 $$
 \sum_{i} a_{i} \log \frac{a_{i}}{b_{i}} \geq\left(\sum_{i} a_{i}\right) \log \frac{\sum_{i} a_{i}}{\sum_{i} b_{i}}
 $$
 with the convention that $\log \frac{a_{i}}{0}=\infty$. Moreover, equality holds if and only if $\frac{a_{i}}{b_{i}}=$ constant for all $i$
+\end{tcolorbox}
+
 \paragraph{Example:}
 $$
 a_{1} \log \frac{a_{1}}{b_{1}}+a_{2} \log \frac{a_{2}}{b_{2}} \geq\left(a_{1}+a_{2}\right) \log \frac{a_{1}+a_{2}}{b_{1}+b_{2}}
 $$
 \begin{itemize}
-	\item The divergence inequality implies the log-sum inequality.
+	\item The divergence inequality implies the log-sum inequality.\\
+Proof. Let $a_{i}^{\prime}=a_{i} / \sum_{j} a_{j}$ and $b_{i}^{\prime}=b_{i} / \sum_{j} b_{j} .$ Then $\left\{a_{i}^{\prime}\right\}$ and $\left\{b_{i}^{\prime}\right\}$ are probability distributions. Using the divergence inequality,
+$$
+\begin{aligned}
+0 & \leq \sum_{i} a_{i}^{\prime} \log \frac{a_{i}^{\prime}}{b_{i}^{\prime}} = \color{blue} D(a || b)\\
+&=\sum_{i} \frac{a_{i}}{\sum_{j} a_{j}} \log \frac{a_{i} / \sum_{j} a_{j}}{b_{i} / \sum_{j} b_{j}} \\
+&=\frac{1}{\sum_{j} a_{j}}\left[\sum_{i} a_{i} \log \frac{a_{i}}{b_{i}}-\left(\sum_{i} a_{i}\right) \log \frac{\sum_{j} a_{j}}{\sum_{j} b_{j}}\right]
+\end{aligned}
+$$
 	\item The log-sum inequality also implies the divergence inequality.
+$$
+\begin{aligned}
+D(p \| q) &=\sum p(x) \log \frac{p(x)}{q(x)} \\
+& \geq \color{blue} \left(\sum p(x)\right) \log \frac{\left(\sum p(x)\right)}{\left(\sum q(x)\right)} \\
+&=1 \log \frac{1}{1}=0
+\end{aligned}
+$$
+
 	\item The two inequalities are equivalent.
 \end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Theorem 2.33 (Pinsker's Inequality)}
 $$
 D(p \| q) \geq \frac{1}{2 \ln 2} V^{2}(p, q)
 $$
+\end{tcolorbox}
 \begin{itemize}
 	\item  If $D(p \| q)$ or $D(q \| p)$ is small, then so is $V(p, q)$.
 	\item For a sequence of probability distributions $q_{k},$ as $k \rightarrow \infty,$ if $D\left(p \| q_{k}\right) \rightarrow 0$ or $D\left(q_{k} \| p\right) \rightarrow 0,$ then $V\left(p, q_{k}\right) \rightarrow 0$
-	\item That is, "convergence in divergence" is a stronger notion than "convergence in variational distance."
+	\item "Convergence in divergence" is a stronger notion than "convergence in variational distance."
 \end{itemize}
 
-\paragraph{Theorem 2.34 (The Basic Inequalities)} For random variables $X, Y,$ and $Z$,
+\subsection{The Basic Inequalities}
+\begin{tcolorbox}
+\paragraph{Theorem 2.34} For random variables $X, Y,$ and $Z$,
 $$
 I(X ; Y \mid Z) \geq 0
 $$
 with equality if and only if $X$ and $Y$ are independent when conditioning on $Z$.
-Corollary All Shannon's information measures are nonnegative, because they are all special cases of conditional mutual information.
+\end{tcolorbox}
+Proof. Observe that
+$$
+\begin{aligned}
+\color{red} I(X ; Y \mid Z) &= \color{red} \sum_{x, y, z} p(x, y, z) \log \frac{p(x, y \mid z)}{p(x \mid z) p(y \mid z)} \\
+&=\sum_{z} \color{blue} p(z) \sum_{x, y} p(x, y \mid z) \log \frac{p(x, y \mid z)}{p(x \mid z) p(y \mid z)} \\
+&=\sum_{z} p(z) \color{blue} D\left(p_{X Y \mid z} \| p_{X \mid z} p_{Y \mid z}\right) \\ &\geq 0
+\end{aligned} 
+$$
+Finally, we see from Theorem 2.31 that $I(X ; Y \mid Z)=0$ if and only if for all $z \in \mathcal{S}_{z}$
+$$
+p(x, y \mid z)=p(x \mid z) p(y \mid z)
+$$
+or
+$$
+p(x, y, z)=p(x, z) p(y \mid z)
+$$
+for all $x$ and $y .$ Therefore, $X$ and $Y$ are independent conditioning on $Z .$ The proof is accomplished. \qed
+\paragraph{Corollary} All Shannon's information measures are nonnegative, because they are all special cases of conditional mutual information.
 
+\begin{tcolorbox}
 \paragraph{Proposition 2.35} $H(X)=0$ if and only if $X$ is deterministic.
 \paragraph{Proposition 2.36} $H(Y \mid X)=0$ if and only if $Y$ is a function of $X$.
 \paragraph{Proposition 2.37} $I(X ; Y)=0$ if and only if $X$ and $Y$ are independent.
+\end{tcolorbox}
 
+\subsection{Some Useful Information Inequalities}
+\begin{tcolorbox}
 \paragraph{Theorem 2.38 (Conditioning Does Not Increase Entropy)}
 $$
-H(Y \mid X) \leq H(Y)
+H(Y \mid X)=H(Y)-I(X ; Y) \leq H(Y)
 $$
 with equality if and only if $X$ and $Y$ are independent.
-$\bullet$ Similarly, $H(Y \mid X, Z) \leq H(Y \mid Z)$.
-\paragraph{Warning:} $I(X ; Y \mid Z) \leq I(X ; Y)$ does not hold in general.
+\end{tcolorbox}
+\noindent Similarly, $H(Y \mid X, Z) \leq H(Y \mid Z)$. \\
+\textbf{Warning:} $I(X ; Y \mid Z) \leq I(X ; Y)$ does not hold in general.
 
+\begin{tcolorbox}
 \paragraph{Theorem 2.39 (Independence Bound for Entropy)}
 $$
-H\left(X_{1}, X_{2}, \cdots, X_{n}\right) \leq \sum_{i=1}^{n} H\left(X_{i}\right)
+H\left(X_{1}, X_{2}, \cdots, X_{n}\right) =\sum_{i=1}^{n} H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)  \leq \sum_{i=1}^{n} H\left(X_{i}\right) \quad \text{(Theorem 2.38)}
 $$
 with equality if and only if $X_{i}, i=1,2, \cdots, n$ are mutually independent.
-Theorem 2.40
+\end{tcolorbox}
+The inequality is tight if and only if
+it is tight for each $i$,
 $$
-I(X ; Y, Z) \geq I(X ; Y)
+H\left(X_{i} \mid X_{1}, \cdots, X_{i-1}\right)=H\left(X_{i}\right)
 $$
-with equality if and only if $X \rightarrow Y \rightarrow Z$ forms a Markov chain.
+for $1 \leq i \leq n .$ From the last theorem, this is equivalent to $X_{i}$ being independent of $X_{1}, X_{2}, \cdots, X_{i-1}$ for each $i .$ Then
+$$
+\begin{array}{l}
+p\left(x_{1}, x_{2}, \cdots, x_{n}\right) \\
+=p\left(x_{1}, x_{2}, \cdots, x_{n-1}\right) p\left(x_{n}\right) \\
+=p\left(p\left(x_{1}, x_{2}, \cdots, x_{n-2}\right) p\left(x_{n-1}\right) p\left(x_{n}\right)\right. \\
+\vdots \\
+=p\left(x_{1}\right) p\left(x_{2}\right) \cdots p\left(x_{n}\right)
+\end{array}
+$$
+for all $x_{1}, x_{2}, \cdots, x_{n},$ i.e., $X_{1}, X_{2}, \cdots, X_{n}$ are mutually independent.
 
+Alternatively, we can prove the theorem by considering
+$$
+\begin{aligned}
+\sum_{i=1}^{n} H\left(X_{i}\right)-H\left(X_{1}, X_{2}, \cdots, X_{n}\right) 
+&=-\sum_{i=1}^{n} E \log p\left(X_{i}\right)+E \log p\left(X_{1}, X_{2}, \cdots, X_{n}\right) \\
+&=-E \log \left[p\left(X_{1}\right) p\left(X_{2}\right) \cdots p\left(X_{n}\right)\right]+E \log p\left(X_{1}, X_{2}, \cdots, X_{n}\right) \\
+&=E \log \frac{p\left(X_{1}, X_{2}, \cdots, X_{n}\right)}{p\left(X_{1}\right) p\left(X_{2}\right) \cdots p\left(X_{n}\right)} \\
+&=D\left(p_{X_{1} X_{2} \cdots X_{n}} \| p_{X_{1}} p_{X_{2}} \cdots p_{X_{n}}\right) \\
+&\geq 0
+\end{aligned}
+$$
+where equality holds if and only if
+$$
+p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=p\left(x_{1}\right) p\left(x_{2}\right) \cdots p\left(x_{n}\right)
+$$
+for all $x_{1}, x_{2}, \cdots, x_{n},$ i.e., $X_{1}, X_{2}, \cdots, X_{n}$ are mutually independent.
+
+\begin{tcolorbox}
+\paragraph{Theorem 2.40} By Chain Rule for Mutual Information
+$$
+I(X ; Y, Z)=I(X ; Y)+I(X ; Z \mid Y) \geq I(X ; Y) 
+$$
+
+with equality if and only if $X \rightarrow Y \rightarrow Z$ forms a Markov chain.
+\end{tcolorbox}
+
+\begin{tcolorbox}
 \paragraph{Lemma 2.41} If $X \rightarrow Y \rightarrow Z$ forms a Markov chain, then
 $$
 I(X ; Z) \leq I(X ; Y)
@@ -413,44 +565,121 @@ and
 $$
 I(X ; Z) \leq I(Y ; Z)
 $$
-\paragraph{Corollary}
-\begin{itemize}
-	\item If $X \rightarrow Y \rightarrow Z,$ then $$H(X \mid Z) \geq H(X \mid Y)$$
-	\item Suppose $Y$ is an observation of $X .$ Then further processing of $Y$ can only increase the uncertainty about $X$ on the average.
-\end{itemize}
+\end{tcolorbox}
 
+Proof.
+$$
+\begin{aligned}
+I(X ; Z) &= \color{blue} I(X ; Y, Z)-I(X ; Y \mid Z) \qquad \text{(Chain Rule)}\\
+& \leq I(X ; Y, Z) \\
+&= \color{blue} I(X ; Y)+I(X ; Z \mid Y)  \qquad (I(X ; Z \mid Y)=0 \text{ by Markov Chain}) \\
+&=I(X ; Y)
+\end{aligned}
+$$
+since $X \rightarrow Y \rightarrow Z$ is equivalent to $Z \rightarrow Y \rightarrow X$, $I(X ; Z) \leq I(Y ; Z)$ also proved.
+
+\begin{tcolorbox}
+\paragraph{Corollary}
+If $X \rightarrow Y \rightarrow Z,$ then
+$$
+\begin{aligned}
+H(X \mid Z) &=H(X)-I(X ; Z) \\
+& \geq H(X)-I(X ; Y) \\
+&=H(X \mid Y)
+\end{aligned}
+$$
+\end{tcolorbox}
+Suppose $Y$ is an observation of $X .$ Then further processing of $Y$ can only increase the uncertainty about $X$ on the average.
+
+\begin{tcolorbox}
 \paragraph{Theorem 2.42 (Data Processing Theorem)} If $U \rightarrow X \rightarrow Y \rightarrow V$ forms a Markov chain, then
 $$
 I(U ; V) \leq I(X ; Y)
 $$
+\end{tcolorbox}
+Proof. $I(U ; V) \leq I(U ; Y) \leq I(X; Y)$ by Lemma 2.41
 
+\begin{tcolorbox}
 \paragraph{Theorem 2.43} For any random variable $X$,
 $$
 H(X) \leq \log |\mathcal{X}|
 $$
-where $|\mathcal{X}|$ denotes the size of the alphabet $\mathcal{X}$. This upper bound is tight if and only if $X$ is distributed uniformly on $\mathcal{X}$.
+where $|\mathcal{X}|$ denotes the size of the alphabet $\mathcal{X}$. The bound tight iff $X$ is distributed uniformly on $\mathcal{X}$.
+\end{tcolorbox}
 
+Proof. Let $u$ be the uniform distribution on $\mathcal{X},$ i.e., \textcolor{blue}{$u(x)=|\mathcal{X}|^{-1}$} for all $x \in \mathcal{X} .$ Then
+$$
+\begin{aligned}
+\log |\mathcal{X}|-H(X) &=-\sum_{x \in \mathcal{S}_{X}} p(x) \log |\mathcal{X}|^{-1}+\sum_{x \in \mathcal{S}_{X}} p(x) \log p(x) \\
+&=-\sum_{x \in \mathcal{S}_{X}} p(x) \log u(x)+\sum_{x \in \mathcal{S}_{X}} p(x) \log p(x) \\
+&=\sum_{x \in \mathcal{S}_{X}} p(x) \log \frac{p(x)}{u(x)} \\
+&=D(p \| u) \geq 0
+\end{aligned}
+$$
+This upper bound is tight iff only $D(p \| u)=0,$ which from Theorem 2.31 is equivalent to $p(x)=u(x)$ for all $x \in \mathcal{X},$ completing the proof. \qed
+
+\begin{tcolorbox}
 \paragraph{Corollary 2.44} The entropy of a random variable may take any nonnegative real value.
+\end{tcolorbox}
+Proof. For any value $0 < b< \log |X|$, by the intermediate
+value theorem of continuous functions, there exists a distribution for $X$ such that 
+$H(X) = b$. Then we see that $H(X)$ can take any positive value by letting
+$|X|$ be sufficiently large.
+
+\paragraph{Remark} Let $|\mathcal{X}|=D,$ or the random variable $X$ is a $D$ -ary symbol. When the base of the logarithm is $D,(2.162)$ becomes
+$$
+H_{D}(X) \leq 1
+$$
+Recall that the unit of entropy is the $D$-it when the logarithm is in the base $D$. This inequality says that a $D$-ary symbol can carry at most 1 $D$-it of information. This maximum is achieved when $X$ has a uniform distribution.
+
 \paragraph{Remark} The entropy of a random variable
 \begin{itemize}
 	\item is finite if its alphabet is finite.
 	\item can be finite or infinite if its alphabet is finite (see Examples 2.45 and 2.46)
 \end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Theorem 2.47 (Fano's Inequality)} Let $X$ and $\hat{X}$ be random variables taking values in the same alphabet $\mathcal{X} .$ Then
 $$
 H(X \mid \hat{X}) \leq h_{b}\left(P_{e}\right)+P_{e} \log (|\mathcal{X}|-1)
 $$
 where $h_{b}$ is the binary entropy function.
-
-\paragraph{Corollary 2.48} $$H(X \mid \hat{X})<1+P_{e} \log |\mathcal{X}|$$
-Interpretation
+\end{tcolorbox}
+Proof. Define a random variable
+$$
+Y=\left\{\begin{array}{l}
+0 \text { if } X=\hat{X} \\
+1 \text { if } X \neq \hat{X}
+\end{array}\right.
+$$
+The random variable $Y$ is an indicator of the error event $\{X \neq \hat{X}\},$ with $\operatorname{Pr}\{Y=1\}=P_{e}$ and $H(Y)=h_{b}\left(P_{e}\right) .$ since $Y$ is a function $X$ and $\hat{X}$
+$$
+H(Y \mid X, \hat{X})=0
+$$
+Then
+$$
+\begin{aligned}
+H(X \mid \hat{X}) &=H(X \mid \hat{X})+ \color{red} H(Y \mid X, \hat{X}) \\
+&=H(X, Y \mid \hat{X}) \\
+&= \color{red} H(Y \mid \hat{X})+H(X \mid \hat{X}, Y) \\
+&\leq H(Y)+H(X \mid \hat{X}, Y) \\
+&=H(Y)+\sum_{\hat{x} \in \mathcal{X}}[\operatorname{Pr}\{\hat{X}=\hat{x}, Y=0\} H(X \mid \hat{X}=\hat{x}, Y=0) +\operatorname{Pr}\{\hat{X}=\hat{x}, Y=1\} H(X \mid \hat{X}=\hat{x}, Y=1)] \\
+& \color{blue} \leq h_{b}\left(P_{e}\right)+\left(\sum_{\dot{x} \in \mathcal{X}} \operatorname{Pr}\{\hat{X}=\hat{x}, Y=1\}\right) \log (|\mathcal{X}|-1) \\
+& = h_{b}\left(P_{e}\right)+\operatorname{Pr}\{Y=1\} \log (|\mathcal{X}|-1) \\
+& =h_{b}\left(P_{e}\right)+P_{e} \log (|\mathcal{X}|-1)
+\end{aligned}
+$$
 \begin{itemize}
-	\item For finite alphabet, if $P_{e} \rightarrow 0,$ then $H(X \mid \hat{X}) \rightarrow 0$
-	\item This may NOT hold for countably infinite alphabet (see Example 2.49 ).
+	\item For <finite> alphabet, if $P_{e} \rightarrow 0,$ then $H(X \mid \hat{X}) \rightarrow 0$
+	\item This may NOT hold for <countably infinite> alphabet (see Example 2.49 ).
 \end{itemize}
+\begin{tcolorbox}
+\paragraph{Corollary 2.48} $$H(X \mid \hat{X})<1+P_{e} \log |\mathcal{X}|$$
+\end{tcolorbox}
+
 
 \section{The $I$-Measure}
+\subsection{Preliminaries}
 \paragraph{Example}
 1.$$
 \begin{aligned}
@@ -469,9 +698,9 @@ H\left(X_{1}, X_{2}\right)=H\left(X_{1}\right)+H\left(X_{2}\right)-I\left(X_{1} 
 $$
 in information theory.
 
-\paragraph{Definition 3.1} The field $\mathcal{F}_{n}$ generated by sets $\tilde{X}_{1}, \tilde{X}_{2}, \cdots, \tilde{X}_{n}$ is the collection of sets which can be obtained by any sequence of usual set operations (union, intersection, complement, and difference) on $\tilde{X}_{1}, \tilde{X}_{2}, \cdots, \tilde{X}_{n}$
+\paragraph{Definition 3.1 (Field)} The field $\mathcal{F}_{n}$ generated by sets $\tilde{X}_{1}, \tilde{X}_{2}, \cdots, \tilde{X}_{n}$ is the collection of sets which can be obtained by any sequence of usual set operations (union, intersection, complement, and difference) on $\tilde{X}_{1}, \tilde{X}_{2}, \cdots, \tilde{X}_{n}$
 
-\paragraph{Definition 3.2} The atoms of $\mathcal{F}_{n}$ are sets of the form $\cap_{i=1}^{n} Y_{i},$ where $Y_{i}$ is either $\tilde{X}_{i}$ or $\tilde{X}_{i}^{c},$ the complement of $\tilde{X}_{i}$
+\paragraph{Definition 3.2 (Atoms)} The atoms of $\mathcal{F}_{n}$ are sets of the form $$\cap_{i=1}^{n} Y_{i},$$ where $Y_{i}$ is either $\tilde{X}_{i}$ or $\tilde{X}_{i}^{c},$ the complement of $\tilde{X}_{i}$
 
 \paragraph{Definition 3.4} A real function $\mu$ defined on $\mathcal{F}_{n}$ is called a signed measure if it is set-additive, i.e., for disjoint $A$ and $B$ in $\mathcal{F}_{n}$
 $$
@@ -487,11 +716,13 @@ Remark $\mu(\emptyset)=0$
 	$$
 	\item The value of $\mu$ on other sets in $\mathcal{F}_{2}$ are obtained by set-additivity.
 \end{itemize}
-\paragraph{Construction of the $I$-Measure $\mu^{*}$}
+
+\subsection{The I-Measure for Two Random Variables}
+\subsection{Construction of the $I$-Measure $\mu^{*}$}
 \begin{itemize}
 	\item Let $\tilde{X}$ be a set corresponding to a r.v. $X$.
 	\item $\mathcal{N}_{n}=\{1,2, \cdots, n\}$
-	\item  Universal set
+	\item  Universal set to be the union of the sets $ \tilde{X}_1,  \tilde{X}_2, \cdots,  \tilde{X}_n$,
 	$$
 	\Omega=\bigcup_{i \in \mathcal{N}_{n}} \tilde{X}_{i}
 	$$
@@ -521,11 +752,29 @@ $$
 I(X ; Y \mid Z)=H(X, Z)+H(Y, Z)-H(X, Y, Z)-H(Z)
 $$
 
-\noindent Construct the $I$ -Measure $\mu^{*}$ on $\mathcal{F}_{n}$ using by defining
+\begin{tcolorbox}
+Construct the $I$ -Measure $\mu^{*}$ on $\mathcal{F}_{n}$ using Theorem 3.6 by defining
 $$
 \mu^{*}\left(\tilde{X}_{G}\right)=H\left(X_{G}\right)
 $$
-for all nonempty subsets $G$ of $\mathcal{N}_{n}$.
+for all nonempty subsets $G$ of $\mathcal{N}_{n} .$ In order for $\mu^{*}$ to be meaningful, it has to be consistent with all Shannon's information measures (via the substitution of symbols in (3.19)$)$. In that case, the following must hold for all (not necessarily disjoint) subsets $G, G^{\prime}, G^{\prime \prime}$ of $\mathcal{N}_{n}$ where $G$ and $G^{\prime}$ are nonempty:
+$$
+\mu^{*}\left(\tilde{X}_{G} \cap \tilde{X}_{G^{\prime}}-\tilde{X}_{G^{\prime \prime}}\right)=I\left(X_{G} ; X_{G^{\prime}} \mid X_{G^{\prime \prime}}\right)
+$$
+When $G^{\prime \prime}=\emptyset,(3.41)$ becomes
+$$
+\mu^{*}\left(\tilde{X}_{G} \cap \tilde{X}_{G^{\prime}}\right)=I\left(X_{G} ; X_{G^{\prime}}\right)
+$$
+When $G=G^{\prime},(3.41)$ becomes
+$$
+\mu^{*}\left(\tilde{X}_{G}-\tilde{X}_{G^{\prime \prime}}\right)=H\left(X_{G} \mid X_{G^{\prime \prime}}\right)
+$$
+When $G=G^{\prime}$ and $G^{\prime \prime}=\emptyset,(3.41)$ becomes
+$$
+\mu^{*}\left(\tilde{X}_{G}\right)=H\left(X_{G}\right)
+$$
+Thus (3.41) covers all the four cases of Shannon's information measures, and it is the necessary and sufficient condition for $\mu^{*}$ to be consistent with all Shannon's information measures.
+\end{tcolorbox}
 
 \paragraph{Theorem 3.9} $\mu^{*}$ is the unique signed measure on $\mathcal{F}_{n}$ which is consistent with all Shannon's information measures.
 \begin{itemize}
@@ -533,62 +782,212 @@ for all nonempty subsets $G$ of $\mathcal{N}_{n}$.
 	\item Can employ set-theoretic tools to manipulate expressions of Shannon's information measures.
 \end{itemize}
 
+\subsection{$\mu^{*}$ Can Be Negative}
+For $n = 3$, $\mu^{*}\left(\tilde{X}_{1} \cap \tilde{X}_{2} \cap \tilde{X}_{3}\right)$ does not correspond to a Shannon's information measure. $\mu^{*}\left(\tilde{X}_{1} \cap \tilde{X}_{2} \cap \tilde{X}_{3}\right)$ can actually be negative.
+
+\paragraph{Example 3.10} Let all entropies be in the base $2 .$ Let $X_{1}$ and $X_{2}$ be independent binary random variables with
+$$
+\operatorname{Pr}\left\{X_{i}=0\right\}=\operatorname{Pr}\left\{X_{i}=1\right\}=0.5, \qquad i=1,2.
+$$
+Let
+$$
+X_{3}=\left(X_{1}+X_{2}\right) \bmod 2
+$$
+It is easy to check that $X_{3}$ has the same marginal distribution as $X_{1}$ and $X_{2}$. Thus,
+$$
+H\left(X_{i}\right)=1
+$$
+for $i=1,2,3 .$ Moreover, $X_{1}, X_{2},$ and $X_{3}$ are pairwise independent. Therefore,
+$$
+H\left(X_{i}, X_{j}\right)=2
+$$
+and
+$$
+\color{blue} I\left(X_{i} ; X_{j}\right)=0
+$$
+for $1 \leq i<j \leq 3 .$ We further see from, $X_{3}=\left(X_{1}+X_{2}\right) \bmod 2$, that each random variable is a function of the other two random variables. Then by the chain rule for entropy, we have
+$$
+\begin{aligned}
+H\left(X_{1}, X_{2}, X_{3}\right) &=H\left(X_{1}, X_{2}\right)+H\left(X_{3} \mid X_{1}, X_{2}\right) \\
+&=2+0 =2
+\end{aligned}
+$$
+Now for $1 \leq i<j<k \leq 3$
+$$
+\begin{aligned}
+\color{blue} I\left(X_{i} ; X_{j} \mid X_{k}\right) &=H\left(X_{i}, X_{k}\right)+H\left(X_{j}, X_{k}\right)-H\left(X_{1}, X_{2}, X_{3}\right)-H\left(X_{k}\right) \\
+&=2+2-2-1 \\
+&= \color{blue} 1
+\end{aligned}
+$$
+where we have invoked Lemma $3.8.$ It then follows that
+$$
+\begin{aligned}
+\mu^{*}\left(\tilde{X}_{1} \cap \tilde{X}_{2} \cap \tilde{X}_{3}\right) &=\mu^{*}\left(\tilde{X}_{1} \cap \tilde{X}_{2}\right)-\mu^{*}\left(\tilde{X}_{1} \cap \tilde{X}_{2}-\tilde{X}_{3}\right) \\
+&=I\left(X_{1} ; X_{2}\right)-I\left(X_{1} ; X_{2} \mid X_{3}\right) \\
+&=0-1 \\
+&= \color{blue} -1
+\end{aligned}
+$$
+Thus $\mu^{*}$ takes a negative value on the atom $\tilde{X}_{1} \cap \tilde{X}_{2} \cap \tilde{X}_{3}$.
+
+\noindent The mutual information,
+$$
+I\left(X_{1} ; X_{2} ; X_{3}\right)=I\left(X_{1} ; X_{2}\right)-I\left(X_{1} ; X_{2} \mid X_{3}\right)
+$$
+For this example, $I\left(X_{1} ; X_{2} ; X_{3}\right)<0,$ which implies
+$$
+I\left(X_{1} ; X_{2} \mid X_{3}\right)>I\left(X_{1} ; X_{2}\right)
+$$
+Therefore, unlike entropy, the mutual information between two random variables can be increased by conditioning on a third random variable.
+\subsection{Information Diagrams}
 \paragraph{Theorem 3.11} If there is no constraint on $X_{1}, X_{2}, \cdots, X_{n},$ then $\mu^{*}$ can take any set of nonnegative values on the nonempty atoms of $\mathcal{F}_{n}$.
 
-Example 3.12 (Concavity of Entropy) Let $X_{1} \sim p_{1}(x)$ and $X_{2} \sim p_{2}(x)$ Let
+\subsection{Examples of Applications}
+\begin{tcolorbox}
+\paragraph{Example 3.12 (Concavity of Entropy)} Let $X_{1} \sim p_{1}(x)$ and $X_{2} \sim p_{2}(x)$. Let
 $$
 X \sim p(x)=\lambda p_{1}(x)+\bar{\lambda} p_{2}(x)
 $$
-where $0 \leq \lambda \leq 1$ and $\bar{\lambda}=1-\lambda .$ Show that
+where $0 \leq \lambda \leq 1$ and $\bar{\lambda}=1-\lambda .$
 $$
 H(X) \geq \lambda H\left(X_{1}\right)+\bar{\lambda} H\left(X_{2}\right)
 $$
-
+\end{tcolorbox}
+$$
+\begin{aligned}
+H(X) & \geq H(X \mid Z) \\
+&=\operatorname{Pr}\{Z=1\} H(X \mid Z=1)+\operatorname{Pr}\{Z=2\} H(X \mid Z=2) \\
+&=\lambda H\left(X_{1}\right)+\bar{\lambda} H\left(X_{2}\right)
+\end{aligned}
+$$
+\begin{tcolorbox}
 \paragraph{Example 3.13 (Convexity of Mutual Information)} Let
 $$
 (X, Y) \sim p(x, y)=p(x) p(y \mid x)
 $$
 For fixed $p(x), I(X ; Y)$ is a convex functional of $p(y \mid x)$
-
+\end{tcolorbox}
+$$
+\begin{aligned}
+I(X ; Y) &=I(X ; Y \mid Z)+I(X ; Y ; Z) \\
+&=I(X ; Y \mid Z)-a \\
+& \leq I(X ; Y \mid Z) \\
+&=\operatorname{Pr}\{Z=1\} I(X ; Y \mid Z=1)+\operatorname{Pr}\{Z=2\} I(X ; Y \mid Z=2) \\
+&=\lambda I\left(p(x), p_{1}(y \mid x)\right)+\bar{\lambda} I\left(p(x), p_{2}(y \mid x)\right)
+\end{aligned}
+$$
+\begin{tcolorbox}
 \paragraph{Example 3.14 (Concavity of Mutual Information)} Let
 $$
 (X, Y) \sim p(x, y)=p(x) p(y \mid x)
 $$
 For fixed $p(y \mid x), I(X ; Y)$ is a concave functional of $p(x)$
+\end{tcolorbox}
+$$
+\begin{aligned}
+I(X ; Y) & \geq I(X ; Y \mid Z) \\
+&=\operatorname{Pr}\{Z=1\} I(X ; Y \mid Z=1)+\operatorname{Pr}\{Z=2\} I(X ; Y \mid Z=2) \\
+&=\lambda I\left(p_{1}(x), p(y \mid x)\right)+\bar{\lambda} I\left(p_{2}(x), p(y \mid x)\right)
+\end{aligned}
+$$
 
-\paragraph{Example 3.17 (Data Processing Theorem)} If $X \rightarrow Y \rightarrow Z \rightarrow T,$ then
-\begin{itemize}
-	\item $I(X ; T) \leq I(Y ; Z)$
-	\item $I(Y ; Z)=I(X ; T)+I(X ; Z \mid T)+I(Y ; T \mid X)+I(Y ; Z \mid X, T)$
-\end{itemize}
+%\paragraph{Example 3.17 (Data Processing Theorem)} If $X \rightarrow Y \rightarrow Z \rightarrow T,$ then
+%\begin{itemize}
+%	\item $I(X ; T) \leq I(Y ; Z)$
+%	\item $I(Y ; Z)=I(X ; T)+I(X ; Z \mid T)+I(Y ; T \mid X)+I(Y ; Z \mid X, T)$
+%\end{itemize}
 
-\section{The Entropy Bound}
+\section{Zero-Error Data Compression}
+\subsection{The Entropy Bound}
 \paragraph{Definition 4.1} A $D$ -ary source code $\mathcal{C}$ for a source random variable $X$ is a mapping from $\mathcal{X}$ to $\mathcal{D}^{*},$ the set of all finite length sequences of symbols taken from a $D$ -ary code alphabet.
 
-\paragraph{Definition 4.2} A code $\mathcal{C}$ is uniquely decodable if for any finite source sequence, the sequence of code symbols corresponding to this source sequence is different from the sequence of code symbols corresponding to any other (finite) source
+\begin{tcolorbox}
+\paragraph{Definition 4.2 (Uniquely Decodable Codes)} A code $\mathcal{C}$ is uniquely decodable if for any finite source sequence, the sequence of code symbols corresponding to this source sequence is different from the sequence of code symbols corresponding to any other (finite) source
 sequence.
+\end{tcolorbox}
 
+In the next theorem, we prove that for any uniquely decodable code,
+the lengths of the codewords have to satisfy an inequality called the Kraft
+inequality.
+
+\begin{tcolorbox}
 \paragraph{Theorem 4.4 (Kraft Inequality)} Let $\mathcal{C}$ be a $D$ -ary source code, and let $l_{1}, l_{2}, \cdots, l_{m}$ be the lengths of the codewords. If $\mathcal{C}$ is uniquely decodable, then
 $$
 \sum_{k=1}^{m} D^{-l_{k}} \leq 1
 $$
-
+\end{tcolorbox}
+Proof. Let $N$ be an arbitrary positive integer, and consider
+$$
+\left(\sum_{k=1}^{m} D^{-l_{k}}\right)^{N}=\sum_{k_{1}=1}^{m} \sum_{k_{2}=1}^{m} \cdots \sum_{k_{N}=1}^{m} D^{-\left(l_{k_{1}}+l_{k_{2}}+\cdots+l_{k_{N}}\right)}
+$$
+By collecting terms on the right-hand side, we write
+$$
+\left(\sum_{k=1}^{m} D^{-l_{k}}\right)^{N}=\sum_{i=1}^{N l_{\max }} A_{i} D^{-i}
+$$
+where
+$$
+l_{\max }=\max _{1 \leq k \leq m} l_{k}
+$$
+and $A_{i}$ is the coefficient of $D^{-i}$ in $\left(\sum_{k=1}^{m} D^{-l_{k}}\right)^{N} .$ Now observe that $A_{i}$ gives the total number of sequences of $N$ codewords with a total length of $i$ code symbols (see Example 4.5 below). since the code is uniquely decodable, these code sequences must be distinct, and therefore
+$$
+A_{i} \leq D^{i}
+$$
+because there are $D^{i}$ distinct sequences of $i$ code symbols. Substituting this inequality into $(4.4),$ we have
+$$
+\left(\sum_{k=1}^{m} D^{-l_{k}}\right)^{N} \leq \sum_{i=1}^{N l_{\max }} 1=N l_{\max }
+$$
+or
+$$
+\sum_{k=1}^{m} D^{-l_{k}} \leq\left(N l_{\max }\right)^{1 / N}
+$$
+Note that using L'hopital's Rule
+$$
+\lim _{n \rightarrow \infty} n^{1 / n} = 1
+$$
+since this inequality holds for any $N,$ upon letting $N \rightarrow \infty,$ we obtain (4.2) completing the proof. \qed
 \paragraph{Expected length of $\mathcal{C}$}
 $$
-L=\sum_{i} p_{i} l_{i}
+L=\sum_{i} p_{i} l_{i} 
 $$
 
+\begin{tcolorbox}
 \paragraph{Theorem 4.6 (Entropy Bound)} Let $\mathcal{C}$ be a $D$ -ary uniquely decodable code for a source random variable $X$ with entropy $H_{D}(X) .$ Then the expected length of $\mathcal{C}$ is lower bounded by $H_{D}(X),$ i.e.,
 $$
 L \geq H_{D}(X)
 $$
 This lower bound is tight if and only if $l_{i}=-\log _{D} p_{i}$ for all $i$.
+\end{tcolorbox}
+Proof.
+$$
+\begin{aligned}
+L-H_{D}(X) &=\sum_{i} p_{i} \log _{D}\left(p_{i} D^{l_{i}}\right) \\
+&=(\ln D)^{-1} \sum_{i} p_{i} \ln \left(p_{i} D^{l_{i}}\right) \\
+& \geq(\ln D)^{-1} \sum_{i} p_{i}\left(1-\frac{1}{p_{i} D^{l_{i}}}\right) \\
+&=(\ln D)^{-1}\left[\sum_{i} p_{i}-\sum_{i} D^{-l_{i}}\right] \\
+& \geq(\ln D)^{-1}(1-1) \\
+&=0
+\end{aligned}
+$$
+where we have invoked the fundamental inequality in (4.19) and the Kraft inequality in $(4.21) .$ This proves $(4.14) .$ In order for this lower bound to be tight, both (4.19) and (4.21) have to be tight simultaneously. Now (4.19) is tight if and only if \textcolor{blue}{$p_{i} D^{l_{i}}=1$} or $l_{i}=-\log _{D} p_{i}$ for all $i .$ If this holds, we have
+$$
+\color{red} \sum_{i} D^{-l_{i}}=\sum_{i} p_{i}=1
+$$
+i.e., (4.21) is also tight. This completes the proof of the theorem.
+\begin{tcolorbox}
 \paragraph{Corollary 4.7} 
 $$ H(X) \leq \log |\mathcal{X}| $$
+\end{tcolorbox}
+Proof. Consider encoding each outcome of a random variable X by a distinct
+symbol in $\{1,2, \cdots,|\mathcal{X}|\}$
+$$
+H_{|\mathcal{X}|}(X) \leq 1
+$$
 
 \paragraph{Definition 4.8} The redundancy $R$ of a $D$ -ary uniquely decodable code is the difference between the expected length of the code and the entropy of the source.
 By the entropy bound, $R \geq 0 .$
 
+\subsection{Prefix Codes}
 \paragraph{Definition 4.9} A code is called a prefix-free code if no codeword is a prefix of any other codeword. For brevity, a prefix-free code will be referred to as a prefix code.
 
 \paragraph{Code Tree for Prefix Code}
@@ -598,13 +997,29 @@ By the entropy bound, $R \geq 0 .$
 	\item The tree representation of a prefix code is called a code tree.
 \end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Theorem 4.11} There exists a $D$ -ary prefix code with codeword lengths $l_{1}$ $l_{2}, \cdots, l_{m}$ if and only if the Kraft inequality
 $$
 \sum_{k=1}^{m} D^{-l_{k}} \leq 1
 $$
 is satisfied.
-
+\end{tcolorbox}
 Proof. Direct part follows because a prefix code is uniquely decodable and hence satisfies Kraft's inequality.
+We only need to prove the existence of a $D$ -ary prefix code with codeword lengths $l_{1}, l_{2}, \cdots, l_{m}$ if these lengths satisfy the Kraft inequality. Without loss of generality, assume that $l_{1} \leq l_{2} \leq \cdots \leq l_{m}$
+
+The number of nodes which can be chosen as the $(i+1)$ st codeword is
+$$
+D^{l_{i+1}}-D^{l_{i+1}-l_{1}}-\cdots-D^{l_{i+1}-l_{i}}
+$$
+If $l_{1}, l_{2}, \cdots, l_{m}$ satisfy the Kraft inequality, we have
+$$
+D^{-l_{1}}+\cdots+D^{-l_{i}}+D^{-l_{i+1}} \leq 1
+$$
+Multiplying by $D^{l_{i+1}}$ and rearranging the terms, we have
+$$
+D^{l_{i+1}}-D^{l_{i+1}-l_{1}}-\cdots-D^{l_{i+1}-l_{i}} \geq 1
+$$
+The left-hand side is the number of nodes which can be chosen as the $(i+1)$ st codeword as given in $(4.27) .$ Therefore, it is possible to choose the $(i+1)$ st codeword. Thus we have shown the existence of a prefix code with codeword lengths $l_{1}, l_{2}, \cdots, l_{m},$ completing the proof. \qed
 
 \paragraph{Corollary 4.12} There exists a $D$ -ary prefix code which achieves the entropy bound for a distribution $\left\{p_{i}\right\}$ if and only if $\left\{p_{i}\right\}$ is $D$ -adic. ($p_{i}=D^{-t_{i}}$ for all $i,$ where $t_{i}$ is integer.)
 
@@ -621,10 +1036,56 @@ Proof. Direct part follows because a prefix code is uniquely decodable and hence
 \paragraph{Lemma 4.16} There exists an optimal code in which the codewords assigned to the two smallest probabilities are siblings, i.e., the two codewords have the same length and they differ only in the last symbol.
 \paragraph{Lemma 4.17} The Huffman procedure produces an optimal prefix code.
 
+\begin{tcolorbox}
 \paragraph{Theorem 4.18} The expected length of a Huffman code, denoted by $L_{\text {Huff }}$ satisfies
 $$
 L_{\mathrm{Huff}}<H_{D}(X)+1
 $$
+\end{tcolorbox}
+
+\noindent Proof. We will construct a prefix code with expected length less than $H(X)+$
+1. Then, because a Huffman code is an optimal prefix code, its expected length $L_{\text {Huff }}$ is upper bounded by $H(X)+1$
+
+Consider constructing a prefix code with codeword lengths $\left\{l_{i}\right\},$ where
+$$
+l_{i}=\left\lceil-\log _{D} p_{i}\right\rceil
+$$
+Then
+$$
+\color{red} -\log _{D} p_{i} \leq l_{i}<-\log _{D} p_{i}+1
+$$
+or
+$$
+p_{i} \geq D^{-l_{i}}>D^{-1} p_{i}
+$$
+Thus
+$$
+\sum_{i} D^{-l_{i}} \leq \sum_{i} p_{i}=1
+$$
+i.e., $\left\{l_{i}\right\}$ satisfies the Kraft inequality, which implies that it is possible to construct a prefix code with codeword lengths $\left\{l_{i}\right\}$.
+
+It remains to show that $L,$ the expected length of this code, is less than $H(X)+1 .$ Toward this end, consider
+$$
+\begin{aligned}
+L &=\sum_{i} p_{i} l_{i} \\
+&<\sum_{i} p_{i}\left(-\log _{D} p_{i}+1\right) \\
+&=-\sum_{i} p_{i} \log _{D} p_{i}+\sum_{i} p_{i} \\
+&=H(X)+1
+\end{aligned}
+$$
+where (4.44) follows from the upper bound in (4.40). Thus we conclude that
+$$
+L_{\mathrm{Huft}} \leq L<H(X)+1
+$$
+To see that this upper bound is the tightest possible, we have to show that there exists a sequence of distributions $P_{k}$ such that $L_{\text {Huff }}$ approaches $H(X)+1$ as $k \rightarrow \infty$. This can be done by considering the sequence of $D$ -ary distributions
+4.3 Redundancy of Prefix Codes
+$$
+P_{k}=\left\{1-\frac{D-1}{k}, \frac{1}{k}, \cdots, \frac{1}{k}\right\}
+$$
+where $k \geq D$. The Huffman code for each $P_{k}$ consists of $D$ codewords of length
+1. Thus $L_{\text {Hufl }}$ is equal to 1 for all $k$. As $k \rightarrow \infty, H(X) \rightarrow 0,$ and hence $L_{\text {Huff }}$ approaches $H(X)+1 .$ The theorem is proved. \qed
+
+
 This bound is the tightest among all the upper bounds on $L_{\text {Huff }}$ which depend only on the source entropy.
 Proof.
 \begin{itemize}
@@ -647,9 +1108,13 @@ Proof.
 	$$
 	H(X) \leq \frac{1}{n} L_{\mathrm{Huff}}^{n}<H(X)+\frac{1}{n} \rightarrow H(X) \text { as } n \rightarrow \infty
 	$$
+
 \end{itemize}
 
+\subsection{Redundancy of Prefix Codes}
+
 \section{Weak Typicality}
+\begin{tcolorbox}
 \paragraph{Theorem 5.1 (Weak AEP I)}
 $$
 -\frac{1}{n} \log p(\mathbf{X}) \rightarrow H(X)
@@ -663,7 +1128,9 @@ $$
 \lim _{n \rightarrow \infty} \operatorname{Pr}\left\{\left|X_{n}-X\right| \geq \epsilon\right\}=0
 $$
 for all $\epsilon>0$.
+\end{tcolorbox}
 
+\begin{tcolorbox}
 \paragraph{Definition 5.2} The weakly typical set $W_{[X] \epsilon}^{n}$ with respect to $p(x)$ is the set of sequences $\mathbf{x}=\left(x_{1}, x_{2}, \cdots, x_{n}\right) \in \mathcal{X}^{n}$ such that
 $$
 \left|-\frac{1}{n} \log p(\mathbf{x})-H(X)\right| \leq \epsilon
@@ -673,6 +1140,7 @@ $$
 H(X)-\epsilon \leq-\frac{1}{n} \log p(\mathbf{x}) \leq H(X)+\epsilon
 $$
 where $\epsilon$ is an arbitrarily small positive real number. The sequences in $W_{[X] \epsilon}^{n}$ are called weakly $\epsilon$ -typical sequences.
+\end{tcolorbox}
 
 \paragraph{Empirical Entropy}
 $$
@@ -681,6 +1149,7 @@ $$
 is called the empirical entropy of the sequence $\mathbf{x}$. \\
 The empirical entropy of a weakly typical sequence is close to the true entropy $H(X)$.
 
+\begin{tcolorbox}
 \paragraph{Theorem 5.2 (Weak AEP II)} The following hold for any $\epsilon>0$ :\\
 1) If $\mathbf{x} \in W_{[X] \epsilon}^{n},$ then
 $$
@@ -694,6 +1163,7 @@ $$
 $$
 (1-\epsilon) 2^{n(H(X)-\epsilon)} \leq\left|W_{[X] \epsilon}^{n}\right| \leq 2^{n(H(X)+\epsilon)}
 $$
+\end{tcolorbox}
 
 \noindent WAEP says that for large $n$
 \begin{itemize}
@@ -757,12 +1227,15 @@ Setup
 	\item $|\mathcal{X}|<\infty$
 \end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Definition 6.1} The strongly typical set $T_{[X] \delta}^{n}$ with respect to $p(x)$ is the set of sequences $\mathbf{x}=\left(x_{1}, x_{2}, \cdots, x_{n}\right) \in \mathcal{X}^{n}$ such that $N(x ; \mathbf{x})=0$ for $x \notin \mathcal{S}_{X},$ and
 $$
 \sum_{x}\left|\frac{1}{n} N(x ; \mathbf{x})-p(x)\right| \leq \delta
 $$
 where $N(x ; \mathbf{x})$ is the number of occurrences of $x$ in the sequence $\mathbf{x},$ and $\delta$ is an arbitrarily small positive real number. The sequences in $T_{[X] \delta}^{n}$ are called strongly $\delta$ -typical sequences.
+\end{tcolorbox}
 
+\begin{tcolorbox}
 \paragraph{Theorem 6.2 (Strong AEP)} There exists $\eta>0$ such that $\eta \rightarrow 0$ as $\delta \rightarrow 0$ and the following hold: \\
 1) If $\mathbf{x} \in T_{[X] \delta}^{n},$ then
 $$
@@ -776,11 +1249,14 @@ $$
 $$
 (1-\delta) 2^{n(H(X)-\eta)} \leq\left|T_{[X] \delta}^{n}\right| \leq 2^{n(H(X)+\eta)}
 $$
+\end{tcolorbox}
 
+\begin{tcolorbox}
 \paragraph{Theorem 6.3} For sufficiently large $n,$ there exists $\varphi(\delta)>0$ such that
 $$
 \operatorname{Pr}\left\{\mathbf{X} \notin T_{[X] \delta}^{n}\right\}<2^{-n \varphi(\delta)}
 $$
+\end{tcolorbox}
 Proof. Chernoff bound.
 
 \paragraph{Lemma 6.4 (Chernoff Bound)} Let $Y$ be a real random variable and $s$ be any nonnegative real number. Then for any real number a,
@@ -792,8 +1268,10 @@ $$
 \log \operatorname{Pr}\{Y \leq a\} \leq s a+\log E\left[2^{-s Y}\right]
 $$
 
+\begin{tcolorbox}
 \paragraph{Proposition 6.5} For any $\mathbf{x} \in \mathcal{X}^{n},$ if $\mathbf{x} \in T_{[X] \delta}^{n},$ then $\mathbf{x} \in W_{[X] \eta}^{n},$ where $\eta \rightarrow 0$
 $\operatorname{as} \delta \rightarrow 0$\\
+\end{tcolorbox}
 
 \noindent Setup
 \begin{itemize}
@@ -802,11 +1280,13 @@ $\operatorname{as} \delta \rightarrow 0$\\
 	\item $|\mathcal{X}|,|\mathcal{Y}|<\infty$
 \end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Definition 6.6} The strongly jointly typical set $T_{[X Y] \delta}^{n}$ with respect to $p(x, y)$ is the set of $(\mathbf{x}, \mathbf{y}) \in \mathcal{X}^{n} \times \mathcal{Y}^{n}$ such that $N(x, y ; \mathbf{x}, \mathbf{y})=0$ for $(x, y) \notin \mathcal{S}_{X Y},$ and
 $$
 \sum_{x} \sum_{y}\left|\frac{1}{n} N(x, y ; \mathbf{x}, \mathbf{y})-p(x, y)\right| \leq \delta
 $$
 where $N(x, y ; \mathbf{x}, \mathbf{y})$ is the number of occurrences of $(x, y)$ in the pair of sequences $(\mathbf{x}, \mathbf{y}),$ and $\delta$ is an arbitrarily small positive real number. A pair of sequences $(\mathbf{x}, \mathbf{y})$ is called strongly jointly $\delta$ -typical if it is in $T_{[X Y] \delta}^{n}$
+\end{tcolorbox}
 
 \paragraph{Theorem 6.7 (Consistency)} If $(\mathbf{x}, \mathbf{y}) \in T_{[X Y] \delta}^{n},$ then $\mathbf{x} \in T_{[X] \delta}^{n}$ and $\mathbf{y} \in T_{[Y] \delta}^{n}$
 
@@ -883,40 +1363,64 @@ $$
 Y=\alpha(X, Z)
 $$
 
+\begin{tcolorbox}
 \paragraph{Definition 7.3} Two discrete channels $p(y \mid x)$ and $(\alpha, Z)$ defined on the same input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$ are equivalent if
 $$
 \operatorname{Pr}\{\alpha(x, Z)=y\}=p(y \mid x)
 $$
 for all $x$ and $y$
+\end{tcolorbox}
 
-\paragraph{Definition 7.4 (DMC I)} A discrete memoryless channel (DMC) $p(y \mid x)$ is a sequence of replicates of a generic discrete channel $p(y \mid x) .$ These discrete channels are indexed by a discrete-time index $i,$ where $i \geq 1,$ with the $i$ th channel being available for transmission at time $i . \quad$ Transmission through a channel is assumed to be instantaneous. Let $X_{i}$ and $Y_{i}$ be respectively the input and the output of the DMC at time $i,$ and let $T_{i-}$ denote all the random variables that are generated in the system before $X_{i} .$ The equality
+\paragraph{Definition 7.4 (DMC I)} A discrete memoryless channel (DMC) $p(y \mid x)$ is a sequence of replicates of a generic discrete channel $p(y \mid x) .$ These discrete channels are indexed by a discrete-time index $i,$ where $i \geq 1,$ with the $i$ th channel being available for transmission at time $i . \quad$ Transmission through a channel is assumed to be instantaneous. Let $X_{i}$ and $Y_{i}$ be respectively the input and the output of the DMC at time $i,$ and let \textcolor{blue}{$T_{i-}$ denote all the random variables that are generated in the system before $X_{i} .$} The equality
 $$
 \operatorname{Pr}\left\{Y_{i}=y, X_{i}=x, T_{i-}=t\right\}=\operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} p(y \mid x)
 $$
 holds for all $(x, y, t) \in \mathcal{X} \times \mathcal{Y} \times \mathcal{T}_{i-}$
-\paragraph{Remark:} $T_{i-} \rightarrow X_{i} \rightarrow Y_{i},$ or
-Given $X_{i}, Y_{i}$ is independent of everything in the past.
 
-\paragraph{Definition 7.4 (DMC I)} A discrete memoryless channel (DMC) $p(y \mid x)$ is a sequence of replicates of a generic discrete channel $p(y \mid x) .$ These discrete channels are indexed by a discrete-time index $i,$ where $i \geq 1,$ with the $i$ th channel being available for transmission at time $i . \quad$ Transmission through a channel is assumed to be instantaneous. Let $X_{i}$ and $Y_{i}$ be respectively the input and the output of the DMC at time $i,$ and let $T_{i-}$ denote all the random variables that are generated in the system before $X_{i} .$ The equality
-$$
-\operatorname{Pr}\left\{Y_{i}=y, X_{i}=x, T_{i-}=t\right\}=\operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} p(y \mid x)
-$$
-holds for all $(x, y, t) \in \mathcal{X} \times \mathcal{Y} \times \mathcal{T}_{i-}$
-Remark: $T_{i-} \rightarrow X_{i} \rightarrow Y_{i},$ or
+\begin{tcolorbox}
+\paragraph{Remark:} $$T_{i-} \rightarrow X_{i} \rightarrow Y_{i},$$ or
 Given $X_{i}, Y_{i}$ is independent of everything in the past.
+\end{tcolorbox}
 
 \paragraph{Definition 7.5 (DMC II)} A discrete memoryless channel $(\alpha, Z)$ is a sequence of replicates of a generic discrete channel $(\alpha, Z) .$ These discrete channels are indexed by a discrete-time index $i,$ where $i \geq 1,$ with the $i$ th channel being available for transmission at time $i$. Transmission through a channel is assumed to be instantaneous. Let $X_{i}$ and $Y_{i}$ be respectively the input and the output of the DMC at time $i,$ and let $T_{i-}$ denote all the random variables that are generated in the system before $X_{i} .$ The noise variable $Z_{i}$ for the transmission at time $i$ is a copy of the generic noise variable $Z,$ and is independent of $\left(X_{i}, T_{i-}\right)$. The output of the DMC at time $i$ is given by
 $$
 Y_{i}=\alpha\left(X_{i}, Z_{i}\right)
 $$
 \paragraph{Remark:} The equivalence of Definitions 7.4 and 7.5 can be shown. See textbook.
+$$
+\begin{array}{l}
+\operatorname{Pr}\left\{Y_{i}=y, X_{i}=x, T_{i-}=t\right\} \\
+\stackrel{a)}{=} \operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} \operatorname{Pr}\left\{Y_{i}=y \mid X_{i}=x\right\} \\
+\stackrel{b)}{=} \operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} \operatorname{Pr}\left\{\alpha\left(X_{i}, Z_{i}\right)=y \mid X_{i}=x\right\} \\
+=\operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} \operatorname{Pr}\left\{\alpha\left(x, Z_{i}\right)=y \mid X_{i}=x\right\} \\
+\stackrel{c)}{=} \operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} \operatorname{Pr}\left\{\alpha\left(x, Z_{i}\right)=y\right\} \\
+\stackrel{d)}{=} \operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} \operatorname{Pr}\{\alpha(x, Z)=y\} \\
+\stackrel{e}{=} \operatorname{Pr}\left\{X_{i}=x, T_{i-}=t\right\} p(y \mid x)
+\end{array}
+$$
+where
+\begin{itemize}
+	\item (a) follows from the Markov chain $T_{i-} \rightarrow X_{i} \rightarrow Y_{i}$
+	\item (b) follows from (7.39)
+	\item (c) follows from Definition 7.5 that $Z_{i}$ is independent of $X_{i}$
+	\item (d) follows from Definition 7.5 that $Z_{i}$ and the generic noise variable $Z$ have the same distribution;
+	\item (e) follows from (7.34)
+\end{itemize}
 
+\begin{tcolorbox}
 \paragraph{Definition 7.6} The capacity of a discrete memoryless channel $p(y \mid x)$ is defined
 as
 $$
-C=\max _{p(x)} I(X ; Y)
+C=\max _{p(x)} I(X ; Y) \geq 0
 $$
 where $X$ and $Y$ are respectively the input and the output of the generic discrete channel, and the maximum is taken over all input distributions $p(x)$.
+\end{tcolorbox}
+$$
+C=\max _{p(x)} I(X ; Y) \leq \max _{p(x)} H(X)=\log |\mathcal{X}|
+$$
+$$
+C \leq \min (\log |\mathcal{X}|, \log |\mathcal{Y}|)
+$$
 \paragraph{Remarks:}
 \begin{itemize}
 	\item since $I(X ; Y)$ is a continuous functional of $p(x)$ and the set of all $p(x)$ is a compact set (i.e., closed and bounded) in $\Re^{|\mathcal{X}|},$ the maximum value of $I(X ; Y)$ can be attained.
@@ -924,7 +1428,27 @@ where $X$ and $Y$ are respectively the input and the output of the generic discr
 	\item Can communicate through a channel at a positive rate while $P_{e} \rightarrow 0 !$
 \end{itemize}
 
-\paragraph{The Channel Coding Theorem}
+\paragraph{Example 7.7 (Binary Symmetric Channel)}
+$$
+Y=X+Z \bmod 2
+$$
+This representation for a BSC is in the form prescribed by Definition 7.2 . In order to determine the capacity of the BSC, we first bound $I(X ; Y)$ as follows:
+$$
+\begin{aligned}
+I(X ; Y) &=H(Y)-H(Y \mid X) \\
+&=H(Y)-\sum_{x} p(x) H(Y \mid X=x) \\
+&=H(Y)-\sum_{x} p(x) h_{b}(\epsilon) \\
+&=H(Y)-h_{b}(\epsilon) \\
+& \leq 1-h_{b}(\epsilon)
+\end{aligned}
+$$
+where we have used $h_{b}$ to denote the binary entropy function in the base 2 . In order to achieve this upper bound, we have to make $H(Y)=1,$ i.e., the output distribution of the BSC is uniform. This can be done by letting $p(x)$ be the uniform distribution on \{0,1\} . Therefore, the upper bound on $I(X ; Y)$ can be achieved, and we conclude that
+$$C=1-h_{b}(\epsilon) \text{ bit per use} $$
+When $\epsilon = 0.5$, the channel output is independent of the channel input.
+Therefore, no information can possibly be communicated through the channel.
+\paragraph{Example 7.8 (Binary Erasure Channel)}
+
+\subsection{The Channel Coding Theorem}
 \paragraph{Direct Part} Information can be communicated through a DMC with an arbitrarily small probability of error at any rate less than the channel capacity.
 \paragraph{Converse} If information is communicated through a DMC at a rate higher than the capacity, then the probability of error is bounded away from zero.
 
@@ -1169,4 +1693,32 @@ Interpretation of Lemma 7.17
 	\end{itemize}
 	Otherwise, $\mathbf{Y}$ is decoded to a constant message in $\mathcal{W}$. Denote by $\hat{W}$ the message to which $Y$ is decoded.
 \end{enumerate}
+
+\paragraph{Definition 7.18} An $(n, M)$ code with complete feedback for a discrete memoryless channel with input alphabet $\mathcal{X}$ and output alphabet $\mathcal{Y}$ is defined by encoding functions
+$$
+f_{i}:\{1,2, \cdots, M\} \times \mathcal{Y}^{i-1} \rightarrow \mathcal{X}
+$$
+for $1 \leq i \leq n$ and a decoding function
+$$
+g: \mathcal{Y}^{n} \rightarrow\{1,2, \cdots, M\}
+$$
+Notations: $\mathbf{Y}^{i}=\left(Y_{1}, Y_{2}, \cdots, Y_{i}\right), X_{i}=f_{i}\left(W, \mathbf{Y}^{i-1}\right)$
+
+\paragraph{Definition 7.19} A rate $R$ is achievable with complete feedback for a discrete memoryless channel $p(y \mid x)$ if for any $\epsilon>0,$ there exists for sufficiently large $n$ an $(n, M)$ code with complete feedback such that
+$$
+\frac{1}{n} \log M>R-\epsilon
+$$
+and
+$$
+\lambda_{\max }<\epsilon
+$$
+\paragraph{Definition 7.20} The feedback capacity, $C_{F B},$ of a discrete memoryless channel is the supremum of all the rates achievable by codes with complete feedback.
+
+\paragraph{Proposition 7.21} The supremum in the definition of $C_{F B}$ in Definition 7.20 is the maximum.
+
+\paragraph{Lemma 7.22} For all $1 \leq i \leq n$
+$$
+\left(W, \mathbf{Y}^{i-1}\right) \rightarrow X_{i} \rightarrow Y_{i}
+$$
+forms a Markov chain.
 \end{document}
